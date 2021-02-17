@@ -11,93 +11,740 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
 
+</head>
 
 
-    <form class="my-form">
-        <h1 style="text-align: center;">TÜRKİYE'NİN ALARM MERKEZİ MARKASI</h1>
-        <div class="container">
-            <div class="title">
+<form class="my-form">
+    <div class="title">
+
+        <div class="row gy-5">
+
+            <div id="mark" class="col-11">
+                <h3>AYB GÜVENLİK</h2>
+            </div>
+        </div>
+        <div class="row gy-5">
+            <div class="col-11">
+                <h3>7/24 GÜVENLİK</h3>
+            </div>
+        </div>
+        <div class="row gy-5">
+            <div class="col-11">
+                <a><span>www.aybguvenlik.com</span></a>
+            </div>
+        </div>
+    </div>
+
+    <h1 style="text-align: center;">TÜRKİYE'NİN ALARM MERKEZİ MARKASI</h1>
+    <div class="container">
+        <!------------------------------------------------------------------------------------------------------------------------->
+        <!-- Titles -->
+        <div class="row gy-8">
+            <div id="sub-title-2" class="col-7">
                 <h2>AYB ABONELİK SÖZLEŞMESİ</h2>
             </div>
-            <div class="sub-title">
+            <div id="sub-title-3" class="col-7">
                 <h3>Abonelik Bilgi Formu</h3>
             </div>
-            <ul>
-                <li>
-                    <select>
-                        <option selected disabled>-- Bir tane Seçenek Seçin --</option>
-                        <option>Seçenek 1</option>
-                        <option>Seçenek 2</option>
-                        <option>Seçenek 3</option>
-                    </select>
-                </li>
-                <li>
-                    <div class="grid grid-2">
-                        <input type="text" placeholder="İsim" required>
-                        <input type="text" placeholder="Soyisim" required>
-                    </div>
-
-                </li>
-                <li>
-                    <div class="grid grid-2">
-                        <input type="email" placeholder="Email">
-                        <input type="tel" placeholder="Telefon">
-                    </div>
-                </li>
-                <li>
-                    <textarea placeholder="Mesaj"></textarea>
-                </li>
-                <div class="calling">
-                    <h3>Alarm Durumunda Aranacak Kişiler</h3>
-                </div>
-                <div class="anyone">
-                    <p>Adı</p>
-                    <p>Soyadı</p>
-                    <p>Parolası</p>
-                    <p>Ev Tel</p>
-                    <p>GSM-1</p>
-                    <p>GSM-2</p>
-                </div>
-                
-                <div class="dedectorDeriv">
-                    <h3>DEDEKTÖR DAĞILIMI VE ANIMLAR</h3>
-                </div>
-
-                <li>
-                    <input type="checkbox" id="terms">
-                    <label for="terms"><a href="#">Sözleşme Şartlarını</a> Okudum Ve Kabul ediyorum</label>
-                </li>
-                <li>
-                    <div class="grid grid-3">
-                        <div class="required-msg">required Fields</div>
-                        <button class="btn-grid" type="submit" disabled>
-                            <span class="back">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
-                            </span>
-                            <span class="front">SUBMIT</span>
-                        </button>
-                        <button class="btn-grid" type="reset" disabled>
-                            <span class="back">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
-                            </span>
-                            <span class="front">RESET</span>
-                        </button>
-                    </div>
-                </li>
-
-            </ul>
         </div>
-    </form>
-
-    <footer>
+        <!------------------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------ ACCOUNT INFO ------------------------------------------------------------------------------->
         <div class="container">
-            <small>Made with <span>❤</span> by <a href="http://georgemartsoukos.com/" target="_blank">Muhammet Mücahit BAYAR</a></small>
+            <div class="row g-2">
+                <!-- Dates -->
+                <div class="col-6">
+                    <div class="p-3  bg">
+                        <div class="p-0"><label for="dates">Bağlantı Tarihi :</label>
+                            <input id="dates" type="date">
+                        </div>
+                    </div>
+                </div>
+                <!-- Account Number -->
+                <div class="col-6">
+                    <div class="p-0  bg">
+                        <div class="p-3">
+                            <label for="accountNo">Abone No :</label>
+                            <input id="accountNo" type="text" style="width: 40%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-</head>
+
+        <div class="container">
+            <div class="row g-2">
+                <!-- Account Name -->
+                <div class="col-6">
+                    <div class="p-3  bg">
+                        <div class="p-0"><label for="name">Abone Adı :</label>
+                            <input id="name" type="text">
+                        </div>
+                    </div>
+                </div>
+                <!-- Account Phone -->
+                <div class="col-6">
+                    <div class="p-0  bg">
+                        <div class="p-3">
+                            <label for="accountPhone">Tel :</label>
+                            <input id="accountPhone" type="tel" style="width: 40%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- telePhone -->
+        <div id="row">
+            <label for="telPhone">Cep :</label>
+            <input id="telPhone" type="text">
+        </div>
+        <!-- Adress -->
+        <div id="row">
+            <label for="adress">Adress :</label>
+            <input id="adress" type="text">
+        </div>
+        <!-- Email-->
+        <div id="row">
+            <label for="email">Email: </label>
+            <input id="email" type="email">
+
+        </div>
+        <!-- Explanation Of Adress-->
+        <div id="row">
+            <label for="expAdres">Adress Açıklaması: </label>
+            <input id="expAdres" type="email">
+
+        </div>
+        <label for="fac" style="margin-top: 4%;">Tesis Tipi </label>
+        <div id="fac">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Ev
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    İş Yeri
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Depo
+                </label>
+            </div>
+        </div>
+
+        <!-- Type Of Panel-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Panel Tipi :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Type Of Connection-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Bağlantı Tipi :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+
+        <!-- Selling Member-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Satış Elemanı :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <!-- Line Of Tel-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Tel Hattı :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!-- GPRS-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">GPRS :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!-- LINE OF NET-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">İNT HATTI :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!-- INSTALLATION MANAGER-->
+        <div id="panels" class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">MONTAJ SORUMLUSU :</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+
+        <!--Personels-->
+        <h3 style="margin-top: 4%;">Kullanıcılar </h3>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Kullanıcı No 1:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Kullanıcı Adı Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMail"
+                                                placeholder="Lütfen Yetkili Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Parolası</label>
+                                            <input type="password" class="form-control" id="phone"
+                                                placeholder="Lütfen Parola giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Website URL</label>
+                                            <input type="url" class="form-control" id="website"
+                                                placeholder="Website url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Kullanıcı No 2:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Kullanıcı Adı Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMail"
+                                                placeholder="Lütfen Yetkili Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Parolası</label>
+                                            <input type="password" class="form-control" id="phone"
+                                                placeholder="Lütfen Parola giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Website URL</label>
+                                            <input type="url" class="form-control" id="website"
+                                                placeholder="Website url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Kullanıcı No 3:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Kullanıcı Adı Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMail"
+                                                placeholder="Enter email ID">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Parolası</label>
+                                            <input type="text" class="form-control" id="phone"
+                                                placeholder="Lütfen Parola giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Website URL</label>
+                                            <input type="url" class="form-control" id="website"
+                                                placeholder="Website url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Kullanıcı No 4:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Kullanıcı Adı Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMail"
+                                                placeholder="Lütfen Yetkili Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Parolası</label>
+                                            <input type="password" class="form-control" id="phone"
+                                                placeholder="Lütfen Parola giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Website URL</label>
+                                            <input type="url" class="form-control" id="website"
+                                                placeholder="Website url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--------------------------------- Calling Personel List In Case Of ALERT------------------------------------------->
+        <h3 style="margin-top: 5%;"> Alarm Durumunda Aranacak Kişiler Listesi</h3>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Aranacak Kişi 1:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Ad ve Soyad Giriniz...">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Password:</label>
+                                            <input type="password" class="form-control" id="eMail"
+                                                placeholder="Lütfen Şifre Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phone"
+                                                placeholder="Lütfen Ev Telefonu giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-1</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-2</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-3</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Aranacak Kişi 2:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Ad ve Soyad Giriniz...">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Password:</label>
+                                            <input type="password" class="form-control" id="eMail"
+                                                placeholder="Lütfen Şifre Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phone"
+                                                placeholder="Lütfen Ev Telefonu giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-1</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-2</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-3</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Aranacak Kişi 3:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Ad ve Soyad Giriniz...">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Password:</label>
+                                            <input type="password" class="form-control" id="eMail"
+                                                placeholder="Lütfen Şifre Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phone"
+                                                placeholder="Lütfen Ev Telefonu giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-1</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-2</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-3</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gutters">
+                <div class="card h-100">
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Aranacak Kişi 4:</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="fullName">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                placeholder="Lütfen Ad ve Soyad Giriniz...">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="eMail">Password:</label>
+                                            <input type="password" class="form-control" id="eMail"
+                                                placeholder="Lütfen Şifre Giriniz">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phone"
+                                                placeholder="Lütfen Ev Telefonu giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-1</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-2</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">GSM-3</label>
+                                            <input type="tel" class="form-control" id="website"
+                                                placeholder="Telefon Numrasaı Giriniz.">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p for="open-close" style="margin-top: 4%;">Açılış/Kapanış İzleme İstiyor mu ? </p>
+        <div id="open-close">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Evet
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Hayır
+                </label>
+            </div>
+
+        </div>
+
+        <p for="open-close">Hafta Sonu Açılış/Kapanış ? </p>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Cumartesi --> Evet</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Pazar --> Evet</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+            <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+          </div>
+        
+
+        <ul>
+            <li>
+                <select>
+                    <option selected disabled>-- Bir tane Seçenek Seçin --</option>
+                    <option>Seçenek 1</option>
+                    <option>Seçenek 2</option>
+                    <option>Seçenek 3</option>
+                </select>
+            </li>
+            <li>
+                <div class="grid grid-2">
+                    <input type="text" placeholder="İsim" required>
+                    <input type="text" placeholder="Soyisim" required>
+                </div>
+
+            </li>
+            <li>
+                <div class="grid grid-2">
+                    <input type="email" placeholder="Email">
+                    <input type="tel" placeholder="Telefon">
+                </div>
+            </li>
+            <li>
+                <textarea placeholder="Mesaj"></textarea>
+            </li>
+            <div class="calling">
+                <h3>Alarm Durumunda Aranacak Kişiler</h3>
+            </div>
+            <div class="anyone">
+                <p>Adı</p>
+                <p>Soyadı</p>
+                <p>Parolası</p>
+                <p>Ev Tel</p>
+                <p>GSM-1</p>
+                <p>GSM-2</p>
+            </div>
+
+            <div class="dedectorDeriv">
+                <h3>DEDEKTÖR DAĞILIMI VE ANIMLAR</h3>
+            </div>
+
+            <li>
+                <input type="checkbox" id="terms">
+                <label for="terms"><a href="#">Sözleşme Şartlarını</a> Okudum Ve Kabul ediyorum</label>
+            </li>
+            <li>
+                <div class="grid grid-3">
+                    <div class="required-msg">required Fields</div>
+                    <button class="btn-grid" type="submit" disabled>
+                        <span class="back">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+                        </span>
+                        <span class="front">SUBMIT</span>
+                    </button>
+                    <button class="btn-grid" type="reset" disabled>
+                        <span class="back">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+                        </span>
+                        <span class="front">RESET</span>
+                    </button>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</form>
+
+<footer>
+    <div class="container">
+        <small>Made with <span>❤</span> by <a href="http://georgemartsoukos.com/" target="_blank">Muhammet Mücahit
+                BAYAR</a></small>
+    </div>
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 
 <body>
 

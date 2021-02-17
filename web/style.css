@@ -288,9 +288,126 @@ footer span {
 /* ---------------------------------------  */
 .title{
     color: rgb(255, 203, 4);
-    text-align: center;
+    text-align: right;
 }
 
 .sub-title{
     text-align: left;
+}
+#sub-title-2{
+  text-align: center;
+  margin-left: 20%;
+}
+
+#sub-title-3{
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left: 0%;
+}
+label{
+  display: inline-table;
+  width: 140px;
+}
+#dates{
+  width: 50%;
+}
+
+#accountNo{
+  margin-top: 5%;
+  width: 40%;
+}
+
+#name{
+
+  width: 40%;
+}
+
+#adress{
+  width: 80%;
+  margin-top: 3%;
+}
+
+#email{
+  margin-top: 3%;
+  width: 80%;
+}
+
+#telPhone{
+  margin-top: 3%;
+  width: 80%;
+}
+
+#expAdres{
+  margin-top: 3%;
+  width: 80%;
+}
+
+#fac{
+  margin-top: 2%;
+}
+
+#panels{
+  margin-top: 5%;
+}
+
+
+body {
+  margin: 0;
+  padding-top: 40px;
+  
+  position: relative;
+  height: 100%;
+}
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  
+}
+.account-settings .about {
+  margin: 2rem 0 0 0;
+  text-align: center;
+}
+.account-settings .about h5 {
+  margin: 0 0 15px 0;
+  color: #007ae1;
+}
+.account-settings .about p {
+  font-size: 0.825rem;
+}
+.form-control {
+  border: 1px solid ;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: .825rem;
+  
+  color: #2e323c;
+}
+
+.card {
+  background-color: #2e323c;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
 }
