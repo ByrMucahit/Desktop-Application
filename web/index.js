@@ -12,3 +12,5 @@ checkbox.addEventListener("change", function() {
     checked ? (btn.disabled = false) : (btn.disabled = true);
   }
 });
+
+$('.datepicker').pickadate();
