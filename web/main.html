@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYBEKLER GÜVENLİK VE ALARM SİSTEMİ SÖZLEŞMESİ</title>
     <!--  Include eel.js - note this file doesn't exist in the web folder-->
-    <script src="/eel.js"></script>
+    <!--<script src="/eel.js"></script>-->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="index.js"></script>
@@ -21,23 +21,25 @@
 
 <form class="my-form">
     <div class="title">
-
+<!------------------------------------------------------------------------------------------------------------------------------>
         <div class="row gy-5">
-
             <div id="mark" class="col-11">
                 <h3>AYB GÜVENLİK</h2>
             </div>
         </div>
+<!------------------------------------------------------------------------------------------------------------------------------>
         <div class="row gy-5">
             <div class="col-11">
                 <h3>7/24 GÜVENLİK</h3>
             </div>
         </div>
+<!------------------------------------------------------------------------------------------------------------------------------>
         <div class="row gy-5">
             <div class="col-11">
                 <a><span>www.aybguvenlik.com</span></a>
             </div>
         </div>
+
     </div>
 
     <h1 style="text-align: center;">TÜRKİYE'NİN ALARM MERKEZİ MARKASI</h1>
@@ -48,63 +50,43 @@
             <div id="sub-title-2" class="col-7">
                 <h2>AYB ABONELİK SÖZLEŞMESİ</h2>
             </div>
+        <!------------------------------------------------------------------------------------------------------------------------------>
             <div id="sub-title-3" class="col-7">
                 <h3>Abonelik Bilgi Formu</h3>
             </div>
         </div>
-        <!------------------------------------------------------------------------------------------------------------------------->
-        <!------------------------------------------ ACCOUNT INFO ------------------------------------------------------------------------------->
-        <div class="container">
-            <div class="row g-2">
-                <!-- Dates -->
-                <div class="col-6">
-                    <div class="p-3  bg">
-                        <div class="p-0"><label for="dates">Bağlantı Tarihi :</label>
-                            <input id="dates" type="date">
-                        </div>
-                    </div>
-                </div>
-                <!-- Account Number -->
-                <div class="col-6">
-                    <div class="p-0  bg">
-                        <div class="p-3">
-                            <label for="accountNo">Abone No :</label>
-                            <input id="accountNo" type="text" style="width: 40%;">
-                        </div>
-                    </div>
-                </div>
+            <!------------------------------------------------------------------------------------------------------------------------->
+            <!------------------------------------------ ACCOUNT INFO ------------------------------------------------------------------------------->
+        <!--Dates-->
+            <div id="row">
+                <label for="dates">Bağlantı Tarihi :</label>
+                <input id="dates" type="date">
+            </div>
+            <!-- Account Number -->
+            <div id="row">
+                <label for="accountNo">Abone No :</label>
+                <input id="accountNo" type="text">
+            </div>
+        <!-- Name -->
+            <div id="row">
+                <label for="name">>Abone Adı :</label>
+                <input id="name" type="text">
+            </div>
+        <!-- Phone -->
+            <div id="row">
+                <label for="telPhone">Tel:</label>
+                <input id="telPhone " type="text">    
             </div>
         </div>
-
         <div class="container">
-            <div class="row g-2">
-                <!-- Account Name -->
-                <div class="col-6">
-                    <div class="p-3  bg">
-                        <div class="p-0"><label for="name">Abone Adı :</label>
-                            <input id="name" type="text">
-                        </div>
-                    </div>
-                </div>
-                <!-- Account Phone -->
-                <div class="col-6">
-                    <div class="p-0  bg">
-                        <div class="p-3">
-                            <label for="accountPhone">Tel :</label>
-                            <input id="accountPhone" type="tel" style="width: 40%;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- telePhone -->
         <div id="row">
-            <label for="telPhone">Cep :</label>
-            <input id="telPhone" type="text">
+            <label for="Phone">Cep :</label>
+            <input id="Phone" type="text">
         </div>
         <!-- Adress -->
         <div id="row">
-            <label for="adress">Adress :</label>
+            <label for="adress">Adres :</label>
             <input id="adress" type="text">
         </div>
         <!-- Email-->
@@ -115,30 +97,32 @@
         </div>
         <!-- Explanation Of Adress-->
         <div id="row">
-            <label for="expAdres">Adress Açıklaması: </label>
+            <label for="expAdres" style="margin-top: 4%;">Adress Açıklaması: </label>
             <input id="expAdres" type="email">
 
         </div>
+
+        <!-- Type Of Facility-->
         <label for="fac" style="margin-top: 4%;">Tesis Tipi </label>
         <div id="fac">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Ev
+                <input class="form-check-input" type="checkbox" value="" id="Ev">
+                <label class="form-check-label" for="Ev">
+                  Ev
                 </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    İş Yeri
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="İsYeri">
+                <label class="form-check-label" for="İsYeri">
+                  İş Yeri
                 </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Depo
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="depo">
+                <label class="form-check-label" for="depo">
+                  Depo
                 </label>
-            </div>
+              </div>    
         </div>
 
         <!-- Type Of Panel-->
@@ -210,32 +194,26 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Kullanıcı Adı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameKullanıcıNo1">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullNameKullanıcıNo1"
                                                 placeholder="Lütfen Kullanıcı Adı Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMail"
+                                            <label for="eMailKullanıcıNo1">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMailKullanıcıNo1"
                                                 placeholder="Lütfen Yetkili Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Parolası</label>
-                                            <input type="password" class="form-control" id="phone"
+                                            <label for="passwordKullanıcıNo1">Parolası</label>
+                                            <input type="password" class="form-control" id="passwordKullanıcıNo1"
                                                 placeholder="Lütfen Parola giriniz.">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="website">Website URL</label>
-                                            <input type="url" class="form-control" id="website"
-                                                placeholder="Website url">
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -256,32 +234,26 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Kullanıcı Adı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameKullanıcıNo2">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullNameKullanıcıNo2"
                                                 placeholder="Lütfen Kullanıcı Adı Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMail"
+                                            <label for="eMailKullanıcıNo2">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMailKullanıcıNo2"
                                                 placeholder="Lütfen Yetkili Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Parolası</label>
-                                            <input type="password" class="form-control" id="phone"
+                                            <label for="passwordKullanıcıNo2">Parolası</label>
+                                            <input type="password" class="form-control" id="passwordKullanıcıNo2"
                                                 placeholder="Lütfen Parola giriniz.">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="website">Website URL</label>
-                                            <input type="url" class="form-control" id="website"
-                                                placeholder="Website url">
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -301,32 +273,26 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Kullanıcı Adı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameKullanıcıNo3">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullNameKullanıcıNo3"
                                                 placeholder="Lütfen Kullanıcı Adı Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMail"
+                                            <label for="eMailKullanıcıNo3">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMailKullanıcıNo3"
                                                 placeholder="Enter email ID">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Parolası</label>
-                                            <input type="text" class="form-control" id="phone"
+                                            <label for="passwordKullanıcıNo3">Parolası</label>
+                                            <input type="text" class="form-control" id="passwordKullanıcıNo3"
                                                 placeholder="Lütfen Parola giriniz.">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="website">Website URL</label>
-                                            <input type="url" class="form-control" id="website"
-                                                placeholder="Website url">
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -346,32 +312,26 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Kullanıcı Adı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameKullanıcıNo4">Kullanıcı Adı :</label>
+                                            <input type="text" class="form-control" id="fullNameKullanıcıNo4"
                                                 placeholder="Lütfen Kullanıcı Adı Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMail"
+                                            <label for="eMailKullanıcıNo4">Yetkilisi</label>
+                                            <input type="text" class="form-control" id="eMailKullanıcıNo4"
                                                 placeholder="Lütfen Yetkili Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Parolası</label>
-                                            <input type="password" class="form-control" id="phone"
+                                            <label for="passwordKullanıcıNo4">Parolası</label>
+                                            <input type="password" class="form-control" id="passwordKullanıcıNo4"
                                                 placeholder="Lütfen Parola giriniz.">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="website">Website URL</label>
-                                            <input type="url" class="form-control" id="website"
-                                                placeholder="Website url">
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -396,44 +356,44 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Adı Soyadı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameAranacakKisi1">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullNameAranacakKisi1"
                                                 placeholder="Lütfen Ad ve Soyad Giriniz...">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Password:</label>
-                                            <input type="password" class="form-control" id="eMail"
+                                            <label for="eMailAranacakKisi1">Password:</label>
+                                            <input type="password" class="form-control" id="eMailAranacakKisi1"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Ev Tel</label>
-                                            <input type="tel" class="form-control" id="phone"
+                                            <label for="phoneAranacakKisi1">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phoneAranacakKisi1"
                                                 placeholder="Lütfen Ev Telefonu giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-1</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM1AranacakKisi1">GSM-1</label>
+                                            <input type="tel" class="form-control" id="GSM1AranacakKisi1"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-2</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM2AranacakKisi1">GSM-2</label>
+                                            <input type="tel" class="form-control" id="GSM2AranacakKisi1"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-3</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM3AranacakKisi1">GSM-3</label>
+                                            <input type="tel" class="form-control" id="GSM3AranacakKisi1"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
@@ -458,44 +418,44 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Adı Soyadı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameAranacakKisi2">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullNameAranacakKisi2"
                                                 placeholder="Lütfen Ad ve Soyad Giriniz...">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Password:</label>
-                                            <input type="password" class="form-control" id="eMail"
+                                            <label for="eMailAranacakKisi2">Password:</label>
+                                            <input type="password" class="form-control" id="eMailAranacakKisi2"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Ev Tel</label>
-                                            <input type="tel" class="form-control" id="phone"
+                                            <label for="phoneAranacakKisi2">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phoneAranacakKisi2"
                                                 placeholder="Lütfen Ev Telefonu giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-1</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM1AranacakKisi2">GSM-1</label>
+                                            <input type="tel" class="form-control" id="GSM1AranacakKisi2"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-2</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM2AranacakKisi2">GSM-2</label>
+                                            <input type="tel" class="form-control" id="GSM2AranacakKisi2"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-3</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM3AranacakKisi2">GSM-3</label>
+                                            <input type="tel" class="form-control" id="GSM3AranacakKisi2"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
@@ -518,44 +478,44 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Adı Soyadı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameAranacakKisi3">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullNameAranacakKisi3"
                                                 placeholder="Lütfen Ad ve Soyad Giriniz...">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Password:</label>
-                                            <input type="password" class="form-control" id="eMail"
+                                            <label for="eMailAranacakKisi3">Password:</label>
+                                            <input type="password" class="form-control" id="eMailAranacakKisi3"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Ev Tel</label>
-                                            <input type="tel" class="form-control" id="phone"
+                                            <label for="phoneAranacakKisi3">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phoneAranacakKisi3"
                                                 placeholder="Lütfen Ev Telefonu giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-1</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM1AranacakKisi3">GSM-1</label>
+                                            <input type="tel" class="form-control" id="GSM1AranacakKisi3"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-2</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM2AranacakKisi3">GSM-2</label>
+                                            <input type="tel" class="form-control" id="GSM2AranacakKisi3"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-3</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM3AranacakKisi3">GSM-3</label>
+                                            <input type="tel" class="form-control" id="GSM3AranacakKisi3"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
@@ -578,44 +538,44 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="fullName">Adı Soyadı :</label>
-                                            <input type="text" class="form-control" id="fullName"
+                                            <label for="fullNameAranacakKisi4">Adı Soyadı :</label>
+                                            <input type="text" class="form-control" id="fullNameAranacakKisi4"
                                                 placeholder="Lütfen Ad ve Soyad Giriniz...">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMail">Password:</label>
-                                            <input type="password" class="form-control" id="eMail"
+                                            <label for="eMailAranacakKisi4">Password:</label>
+                                            <input type="password" class="form-control" id="eMailAranacakKisi4"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="phone">Ev Tel</label>
-                                            <input type="tel" class="form-control" id="phone"
+                                            <label for="phoneAranacakKisi4">Ev Tel</label>
+                                            <input type="tel" class="form-control" id="phoneAranacakKisi4"
                                                 placeholder="Lütfen Ev Telefonu giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-1</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM1AranacakKisi4">GSM-1</label>
+                                            <input type="tel" class="form-control" id="GSM1AranacakKisi4"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-2</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM2AranacakKisi4">GSM-2</label>
+                                            <input type="tel" class="form-control" id="GSM2AranacakKisi4"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">GSM-3</label>
-                                            <input type="tel" class="form-control" id="website"
+                                            <label for="GSM3AranacakKisi4">GSM-3</label>
+                                            <input type="tel" class="form-control" id="GSM3AranacakKisi4"
                                                 placeholder="Telefon Numrasaı Giriniz.">
                                         </div>
                                     </div>
@@ -646,18 +606,13 @@
 
         <p  style="margin-top: 3%;" for="open-close">Hafta Sonu Açılış/Kapanış ? </p>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Cumartesi</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+            <label class="form-check-label" for="inlineCheckbox4">Cumartesi</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Pazar</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            <label class="form-check-label" for="inlineCheckbox5">Pazar</label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
-            <label class="form-check-label" for="inlineCheckbox3">3</label>
-          </div>
-
 
           <!------------------------------------------------Dedector Distribution And Memory-->
         
@@ -774,8 +729,9 @@
                     </div>
                 </div>
             </div>
+           
         </div>
-      
+        <button type="button" onclick="adding()" class="btn btn-primary btn-lg" id="addAccount">Abone Ekle</button>
     </div>
 </form>
 

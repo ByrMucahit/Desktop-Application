@@ -308,20 +308,23 @@ label{
   display: inline-table;
   width: 140px;
 }
-#dates{
-  width: 50%;
-}
+
 
 #accountNo{
   margin-top: 5%;
-  width: 40%;
+  width: 80%;
 }
 
 #name{
 
-  width: 40%;
+  width: 80%;
+  margin-top: 3%;
 }
 
+#dates{
+  width: 80%;
+  margin-top: 3%;
+}
 #adress{
   width: 80%;
   margin-top: 3%;
@@ -333,6 +336,11 @@ label{
 }
 
 #telPhone{
+  margin-top: 3%;
+  width: 80%;
+}
+
+#Phone{
   margin-top: 3%;
   width: 80%;
 }
