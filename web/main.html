@@ -69,14 +69,14 @@
             </div>
         <!-- Name -->
             <div id="row">
-                <label for="name">>Abone Adı :</label>
+                <label for="name">Abone Adı :</label>
                 <input id="name" type="text">
             </div>
         <!-- Phone -->
-            <div id="row">
-                <label for="telPhone">Tel:</label>
-                <input id="telPhone " type="text">    
-            </div>
+        <div id="row">
+            <label for="telPhone">Tel :</label>
+            <input id="telPhone" type="text">
+        </div>
         </div>
         <div class="container">
         <!-- telePhone -->
@@ -106,19 +106,19 @@
         <label for="fac" style="margin-top: 4%;">Tesis Tipi </label>
         <div id="fac">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="Ev">
+                <input class="form-check-input" type="checkbox" value="Ev" id="Ev">
                 <label class="form-check-label" for="Ev">
                   Ev
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="İsYeri">
-                <label class="form-check-label" for="İsYeri">
+                <input class="form-check-input" type="checkbox" value="iş Yeri" id="IsYeri">
+                <label class="form-check-label" for="IsYeri">
                   İş Yeri
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="depo">
+                <input class="form-check-input" type="checkbox" value="Depo" id="depo">
                 <label class="form-check-label" for="depo">
                   Depo
                 </label>
@@ -130,7 +130,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Panel Tipi :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="panelInp" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <!-- Type Of Connection-->
@@ -138,7 +138,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Bağlantı Tipi :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="panelCon" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
 
@@ -147,7 +147,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Satış Elemanı :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="sellingPerso" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <!-- Line Of Tel-->
@@ -155,28 +155,28 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Tel Hattı :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="lineOfTel" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- GPRS-->
         <div id="panels" class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">GPRS :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="gprs" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- LINE OF NET-->
         <div id="panels" class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">İNT HATTI :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="lineOfNet" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- INSTALLATION MANAGER-->
         <div id="panels" class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">MONTAJ SORUMLUSU :</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input id="installationManag" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
 
@@ -202,7 +202,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMailKullanıcıNo1">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMailKullanıcıNo1"
+                                            <input type="email" class="form-control" id="eMailKullanıcıNo1"
                                                 placeholder="Lütfen Yetkili Giriniz">
                                         </div>
                                     </div>
@@ -242,7 +242,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMailKullanıcıNo2">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMailKullanıcıNo2"
+                                            <input type="email" class="form-control" id="eMailKullanıcıNo2"
                                                 placeholder="Lütfen Yetkili Giriniz">
                                         </div>
                                     </div>
@@ -281,7 +281,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMailKullanıcıNo3">Yetkilisi</label>
-                                            <input type="text" class="form-control" id="eMailKullanıcıNo3"
+                                            <input type="email" class="form-control" id="eMailKullanıcıNo3"
                                                 placeholder="Enter email ID">
                                         </div>
                                     </div>
@@ -363,8 +363,8 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMailAranacakKisi1">Password:</label>
-                                            <input type="password" class="form-control" id="eMailAranacakKisi1"
+                                            <label for="passowdAranacakKisi1">Password:</label>
+                                            <input type="password" class="form-control" id="passowdAranacakKisi1"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
@@ -425,8 +425,8 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMailAranacakKisi2">Password:</label>
-                                            <input type="password" class="form-control" id="eMailAranacakKisi2"
+                                            <label for="passowdAranacakKisi2">Password:</label>
+                                            <input type="password" class="form-control" id="passowdAranacakKisi2"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
@@ -485,8 +485,8 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMailAranacakKisi3">Password:</label>
-                                            <input type="password" class="form-control" id="eMailAranacakKisi3"
+                                            <label for="passowdAranacakKisi3">Password:</label>
+                                            <input type="password" class="form-control" id="passowdAranacakKisi3"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
@@ -545,8 +545,8 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="eMailAranacakKisi4">Password:</label>
-                                            <input type="password" class="form-control" id="eMailAranacakKisi4"
+                                            <label for="passowdAranacakKisi4">Password:</label>
+                                            <input type="password" class="form-control" id="passowdAranacakKisi4"
                                                 placeholder="Lütfen Şifre Giriniz">
                                         </div>
                                     </div>
@@ -590,13 +590,13 @@
         <p for="open-close" style="margin-top: 4%;">Açılış/Kapanış İzleme İstiyor mu ? </p>
         <div id="open-close">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="Evet" name="flexRadioDefault" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Evet
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="Hayır" id="flexRadioDefault2" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
                     Hayır
                 </label>
@@ -606,15 +606,15 @@
 
         <p  style="margin-top: 3%;" for="open-close">Hafta Sonu Açılış/Kapanış ? </p>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Cumartesi-Evet">
             <label class="form-check-label" for="inlineCheckbox4">Cumartesi</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="Pazar-Evet">
             <label class="form-check-label" for="inlineCheckbox5">Pazar</label>
           </div>
 
-          <!------------------------------------------------Dedector Distribution And Memory-->
+          <!------------------------------------------------Dedector Distribution And Memory------------------------------------------------------>
         
           <div style="margin-top: 3%;" class="container">
             <div class="row gutters">
