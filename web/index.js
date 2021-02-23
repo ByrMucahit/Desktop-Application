@@ -247,4 +247,25 @@ console.log("11. Bölge --> "+ eleventhRegion.value);
 
 var twelvethRegion = document.getElementById("twelvethRegion");
 console.log("12. Bölge --> "+ twelvethRegion.value);
+
+
+
+/* Get Dynamic  Elements */
+
+$('input').each(function(input){
+  for(var n= 4; n<i+1;n++)
+  {
+
+    var value = $(this).val();
+    var id = $(this).attr('id');
+    if( id === "fullNameKullanıcıNo"+n)
+    {
+     var pers = $('#eMailKullanıcıNo'+n).val();
+     var pss = $('#passwordKullanıcıNo'+n).val();
+      console.log('id: ' + id + ' value:' + value + "\n resp --->"+ pers + " password -->" + pss);
+    }
+    
+  }
+  
+})
 }
