@@ -250,7 +250,7 @@ console.log("12. Bölge --> "+ twelvethRegion.value);
 
 
 
-/* Get Dynamic  Elements */
+/* Get Dynamic  Elements  from Personel*/
 
 $('input').each(function(input){
   for(var n= 4; n<i+1;n++)
@@ -263,6 +263,52 @@ $('input').each(function(input){
      var pers = $('#eMailKullanıcıNo'+n).val();
      var pss = $('#passwordKullanıcıNo'+n).val();
       console.log('id: ' + id + ' value:' + value + "\n resp --->"+ pers + " password -->" + pss);
+    }
+    
+  }
+  
+})
+
+
+
+
+/* Get Dynamic  Elements  from Calling Person*/
+
+$('input').each(function(input){
+  for(var l= 4; l<m+1;l++)
+  {
+
+    var value = $(this).val();
+    var id = $(this).attr('id');
+    if( id === "fullNameAranacakKisi"+l)
+    {
+     var phone = $('#passowdAranacakKisi'+l).val();
+     var passwordCallingMan = $('#passowdAranacakKisi'+l).val();
+     var GSM1= $('#GSM1AranacakKisi'+l).val();
+     var GSM2= $('#GSM2AranacakKisi'+l).val();
+     var GSM3= $('#GSM3AranacakKisi'+l).val();
+      console.log('id: ' + id + ' value:' + value + "\n phone --->"+ phone + " password -->" + passwordCallingMan +"\n GSM1 -->"+GSM1+"\n GSM2 --> "+GSM2+ "\n GSM 3 --> "+GSM3);
+    }
+    
+  }
+  
+})
+
+
+
+
+/* Get Dynamic  Elements  from Region*/
+
+$('input').each(function(input){
+  for(var s= 4; s<t+1;s++)
+  {
+
+    var value = $(this).val();
+    var id = $(this).attr('id');
+    if( id === s+"Region")
+    {
+     
+      console.log('id: ' + id + ' value:' + value);
     }
     
   }

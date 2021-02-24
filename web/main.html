@@ -347,8 +347,9 @@
         
         <button type="button" class="btn btn-secondary btn-lg" id="person" onclick="AddPerson()">+</button>
 
-        <script> var i = 3;</script>
-        <script> var m = 3;</script>
+        <script> var i = 4;</script>
+        <script> var m = 4;</script>
+        <script> var t = 12;</script>
 
         <!--------------------------------- Calling Personel List In Case Of ALERT------------------------------------------->
         <h3 style="margin-top: 5%;"> Alarm Durumunda Aranacak Kişiler Listesi</h3>
@@ -640,7 +641,7 @@
                     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                         <div class="card h-100">
                             <div class="card-body">
-                                <div class="row gutters">
+                                <div class="row gutters" id="rowg">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <h6 class="mb-2 text-primary">DEDEKTÖR DAĞILIMI VE ANIMLAR :</h6>
                                     </div>
@@ -741,11 +742,14 @@
                                         </div>
                                     </div>
                                     
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-secondary btn-lg" id="region" onclick="Region()">+</button>
                 </div>
+               
             </div>
            
         </div>
@@ -777,6 +781,8 @@
 <script src="../web/personelAdding.js"></script>
 <!-- Adding Person To Calling -->
 <script src="../web/callingAdds.js"></script>
+<!-- Adding Region -->
+<script src="../web/addingRegion.js"></script>
 <body>
 
 
