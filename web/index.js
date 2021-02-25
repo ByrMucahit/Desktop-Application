@@ -9,8 +9,8 @@ function yt() {
 function adding() {
   /* Dates Values */
   var dates = document.getElementById('dates');
-  var currentVal = dates.value;
-  console.log(" Dates --> " + currentVal)
+  var currentDate = dates.value;
+  console.log(" Dates --> " + currentDate)
 
   /* Account Number */
   var AccountNumber = document.getElementById('accountNo');
@@ -314,4 +314,16 @@ $('input').each(function(input){
   }
   
 })
+
+
+/* JSON TYPES */
+var text = { 
+  "date": currentDate,
+   "AboneNo":currentAccountNumber,
+  "AboneAdı": currentAccountName,
+  "AboneTelefon":currentAccountTelephone
+  }
+
+console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)
+
 }
