@@ -315,13 +315,31 @@ $('input').each(function(input){
   
 })
 
-
+var  home = document.getElementById("Ev");
+var workPlace = document.getElementById('IsYeri');
+var Depo = document.getElementById('depo');
 /* JSON TYPES */
 var text = { 
   "date": currentDate,
    "AboneNo":currentAccountNumber,
   "AboneAdı": currentAccountName,
-  "AboneTelefon":currentAccountTelephone
+  "AboneTelefon":currentAccountTelephone,
+  "AboneCepTelefon":currentAccountPhone,
+  "AboneAdress":currentAccountAdress,
+  "AboneEmail":currentAccountEmail,
+  "AboneAdresAciklamasi":currentAccountAdressExp,
+ "EvTesisTipi":home.value,
+ "Isyeri:":workPlace.value,
+ "Depo":Depo.value,
+ "PanelTipi":currentPanelType,
+ "BağlantıTipi":currentTypeOfConnection,
+ "SatisPersoneli":currentSellingPersonel,
+ "TelefonHatti":currentLineoFtelephone,
+ "GPRS":currentGPRS,
+ "InternetHatti":currentnetLine,
+"MontajSorumlusu":currentnetInstManager,
+
+
   }
 
 console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)
