@@ -248,10 +248,34 @@ console.log("11. Bölge --> "+ eleventhRegion.value);
 var twelvethRegion = document.getElementById("twelvethRegion");
 console.log("12. Bölge --> "+ twelvethRegion.value);
 
+/* JSON */
+var txt={};
+var list = [];
+
 
 
 /* Get Dynamic  Elements  from Personel*/
 
+/* Static */
+var user1Name = document.getElementById("fullNameKullanıcıNo1");
+var user1Email = document.getElementById("eMailKullanıcıNo1");
+var user1Password = document.getElementById("passwordKullanıcıNo1");
+
+
+  txt[1+"id"]=user1Name;
+  txt[1+"email"]= user1Email;
+  txt[1+"password"]= user1Password;   
+
+  txt[2+"id"]=user2Name;
+  txt[2+"email"]= user2Email;
+  txt[2+"password"]= user2Password;   
+
+  txt[3+"id"]=user3Name;
+  txt[3+"email"]= user3Email;
+  txt[3+"password"]= user3Password;   
+
+
+/* Dynamic */
 $('input').each(function(input){
   for(var n= 4; n<i+1;n++)
   {
@@ -263,12 +287,17 @@ $('input').each(function(input){
      var pers = $('#eMailKullanıcıNo'+n).val();
      var pss = $('#passwordKullanıcıNo'+n).val();
       console.log('id: ' + id + ' value:' + value + "\n resp --->"+ pers + " password -->" + pss);
+        
+        txt[n+"id"]=id;
+        txt[n+"email"]= pers;
+        txt[n+"password"]= pss;   
     }
-    
   }
-  
 })
 
+for (var s = 1 ; s< i+1; s++){
+console.log("this list ; \n "+"id : "+txt[s+"id"] +"\n"+"email :"+txt[s+"email"]+"\n"+"password :"+txt[s+"password"])
+}
 
 
 
@@ -319,7 +348,7 @@ var  home = document.getElementById("Ev");
 var workPlace = document.getElementById('IsYeri');
 var Depo = document.getElementById('depo');
 /* JSON TYPES */
-var text = { 
+text = { 
   "date": currentDate,
    "AboneNo":currentAccountNumber,
   "AboneAdı": currentAccountName,
