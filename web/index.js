@@ -193,20 +193,22 @@ console.log(" name Calling GSM Tel 3-> "+ user4CallingGSM3.value)
 /* Desire that Open up / Close up */
 var Open = document.getElementById("flexRadioDefault1")
 var close = document.getElementById("flexRadioDefault2")
-if(Open.checked === true || close.checked === true){
-  console.log(Open.value);
-  console.log(close.value);
+var which= null;
+if(Open.checked === true ){
+  which = Open.value
+}else if( close.checked === true){
+  which = close.value
 }
 
 /* Weekend */
 var weekend_first_day = document.getElementById("inlineCheckbox4");
 var weekend_second_Day = document.getElementById("inlineCheckbox5");
+var weekEnd = {"Cumatesi":"Hayir","Pazar":"Hayir"};
 if( weekend_first_day.checked === true){
-  console.log(weekend_first_day.value)
+  weekEnd['Cumatesi']="Evet"
 }
 if( weekend_second_Day.checked === true){
-  console.log(weekend_second_Day.value)
-}
+  weekEnd['Pazar']="Evet"
 
 
 
@@ -249,7 +251,9 @@ var twelvethRegion = document.getElementById("twelvethRegion");
 console.log("12. Bölge --> "+ twelvethRegion.value);
 
 /* JSON */
-var txt={};
+var user={};
+var call={};
+var region ={};
 var list = [];
 
 
@@ -257,97 +261,162 @@ var list = [];
 /* Get Dynamic  Elements  from Personel*/
 
 /* Static */
-var user1Name = document.getElementById("fullNameKullanıcıNo1");
-var user1Email = document.getElementById("eMailKullanıcıNo1");
-var user1Password = document.getElementById("passwordKullanıcıNo1");
-
-
-  txt[1+"id"]=user1Name;
-  txt[1+"email"]= user1Email;
-  txt[1+"password"]= user1Password;   
-
-  txt[2+"id"]=user2Name;
-  txt[2+"email"]= user2Email;
-  txt[2+"password"]= user2Password;   
-
-  txt[3+"id"]=user3Name;
-  txt[3+"email"]= user3Email;
-  txt[3+"password"]= user3Password;   
+/*--------USER - 1 ------------- */
+user[1+"id"]=user1Name;
+user[1+"email"]= user1Email;
+user[1+"password"]= user1Password;   
+/*--------USER - 2 ------------- */
+user[2+"id"]=user2Name;
+user[2+"email"]= user2Email;
+user[2+"password"]= user2Password;   
+/*--------USER - 3 ------------- */
+user[3+"id"]=user3Name;
+user[3+"email"]= user3Email;
+user[3+"password"]= user3Password;   
 
 
 /* Dynamic */
 $('input').each(function(input){
-  for(var n= 4; n<i+1;n++)
+  for(var n= 1; n<i+1;n++)
   {
-
     var value = $(this).val();
     var id = $(this).attr('id');
     if( id === "fullNameKullanıcıNo"+n)
     {
+      if(n >=4){
+        
+      }
      var pers = $('#eMailKullanıcıNo'+n).val();
      var pss = $('#passwordKullanıcıNo'+n).val();
       console.log('id: ' + id + ' value:' + value + "\n resp --->"+ pers + " password -->" + pss);
         
-        txt[n+"id"]=id;
-        txt[n+"email"]= pers;
-        txt[n+"password"]= pss;   
+      user[n+"id"]=id;
+      user[n+"email"]= pers;
+      user[n+"password"]= pss;   
     }
   }
 })
 
 for (var s = 1 ; s< i+1; s++){
-console.log("this list ; \n "+"id : "+txt[s+"id"] +"\n"+"email :"+txt[s+"email"]+"\n"+"password :"+txt[s+"password"])
+console.log("this list ; \n "+"id : "+user[s+"id"] +"\n"+"email :"+user[s+"email"]+"\n"+"password :"+user[s+"password"])
 }
 
 
 
+var user1CallingName = document.getElementById("fullNameAranacakKisi1");
+console.log(" name Calling user 1 -> "+ user1CallingName.value )
+var user1CallingPassword = document.getElementById("passowdAranacakKisi1");
+console.log(" name Calling pass 1 -> "+ user1CallingPassword.value)
+var user1CallingHomeTel = document.getElementById("phoneAranacakKisi1");
+console.log(" name Calling Home Tel 1 -> "+ user1CallingHomeTel.value)
+var user1CallingGSM1 = document.getElementById("GSM1AranacakKisi1");
+console.log(" name Calling GSM Tel 1 -> "+ user1CallingGSM1.value)
+var user1CallingGSM2 = document.getElementById("GSM2AranacakKisi1");
+console.log(" name Calling GSM Tel 2 -> "+ user1CallingGSM2.value)
+var user1CallingGSM3 = document.getElementById("GSM3AranacakKisi1");
+console.log(" name Calling GSM Tel 3-> "+ user1CallingGSM3.value)
+
 /* Get Dynamic  Elements  from Calling Person*/
+
+/* Static */
+/*--------USER - 1 ------------- */
+call[1+"isim"]=user1CallingName.value;
+call[1+"sifre"]= user1CallingPassword.value;
+call[1+"telefon"]= user1CallingHomeTel.value; 
+call[1+"GSM1"]= user1CallingGSM1.value;   
+call[1+"GSM2"]=  user1CallingGSM2.value;   
+call[1+"GSM3"]=  user1CallingGSM3.value;  
+/*--------USER - 2 ------------- */
+call[2+"isim"]=user2CallingName.value;
+call[2+"sifre"]= user2CallingPassword.value;
+call[2+"telefon"]= user2CallingHomeTel.value; 
+call[2+"GSM1"]= user2CallingGSM1.value;   
+call[2+"GSM2"]=  user2CallingGSM2.value;   
+call[2+"GSM3"]=  user2CallingGSM3.value;  
+/*--------USER - 3 ------------- */
+call[3+"isim"]=user3CallingName.value;
+call[3+"sifre"]= user3CallingPassword.value;
+call[3+"telefon"]= user3CallingHomeTel.value; 
+call[3+"GSM1"]= user3CallingGSM1.value;   
+call[3+"GSM2"]=  user3CallingGSM2.value;   
+call[3+"GSM3"]=  user3CallingGSM3.value;  
+
+/*--------USER - 4 ------------- 
+call[4+"isim"]=user4CallingName.value;
+call[4+"sifre"]= user4CallingPassword.value;
+call[4+"telefon"]= user4CallingHomeTel.value; 
+call[4+"GSM1"]= user4CallingGSM1.value;   
+call[4+"GSM2"]=  user4CallingGSM2.value;   
+call[4+"GSM3"]=  user4CallingGSM3.value; */
 
 $('input').each(function(input){
   for(var l= 4; l<m+1;l++)
   {
-
     var value = $(this).val();
     var id = $(this).attr('id');
     if( id === "fullNameAranacakKisi"+l)
     {
-     var phone = $('#passowdAranacakKisi'+l).val();
-     var passwordCallingMan = $('#passowdAranacakKisi'+l).val();
-     var GSM1= $('#GSM1AranacakKisi'+l).val();
-     var GSM2= $('#GSM2AranacakKisi'+l).val();
-     var GSM3= $('#GSM3AranacakKisi'+l).val();
-      console.log('id: ' + id + ' value:' + value + "\n phone --->"+ phone + " password -->" + passwordCallingMan +"\n GSM1 -->"+GSM1+"\n GSM2 --> "+GSM2+ "\n GSM 3 --> "+GSM3);
-    }
-    
-  }
-  
+    call[l+"isim"]= value;
+    call[l+"telefon"]= $('#phoneAranacakKisi1'+l).val();
+    call[l+"sifre"] = $('#passowdAranacakKisi'+l).val();
+    call[l+"GSM1"]= $('#GSM1AranacakKisi'+l).val();
+    call[l+"GSM2"]= $('#GSM2AranacakKisi'+l).val();
+    call[l+"GSM3"]= $('#GSM3AranacakKisi'+l).val();  
+    }  
+  } 
 })
+for (var rootCall = 1 ; rootCall< m+1; rootCall++){
+  console.log("Calling"+rootCall+"\n"+"isim : "+call[rootCall+"isim"] +"\n"+"telefon :"+call[rootCall+"telefon"]+"\n"+"sifre :"+call[rootCall+"sifre"]+"\n"+"GSM1: "+call[rootCall+"GSM1"]+"\n GSM2 : "+call[rootCall+"GSM1"]+"\n GSM 3 :"+call[rootCall+"GSM3"])
+  }
 
 
 
+/* Open/Close*/
 
-/* Get Dynamic  Elements  from Region*/
+
+
+/* Get  Elements  from Region*/
+/* Static */
+/*--------Regions ------------- */
+region[1+"Region"]=firstRegion.value;
+region[2+"Region"]=secondRegion.value;
+region[3+"Region"]=thirRegion.value; 
+region[4+"Region"]=fourthRegion.value;
+region[5+"Region"]=fifthRegion.value;
+region[6+"Region"]=sixthRegion.value;
+region[7+"Region"]=seventhRegion.value;
+region[8+"Region"]=eigthRegion.value; 
+region[9+"Region"]=ninthRegion.value;
+region[10+"Region"]=tenthRegion.value;  
+region[11+"Region"]=eleventhRegion.value;
+region[12+"Region"]=twelvethRegion.value; 
+
+
+/* Dynamic */
 
 $('input').each(function(input){
-  for(var s= 4; s<t+1;s++)
+  for(var rootreg= 13; rootreg<=t+1;rootreg++)
   {
-
     var value = $(this).val();
     var id = $(this).attr('id');
-    if( id === s+"Region")
+    if( id === rootreg+"Region")
     {
-     
-      console.log('id: ' + id + ' value:' + value);
-    }
-    
-  }
-  
+      region[rootreg+"Region"]=value;   
+    }  
+  } 
 })
+
+for (var rootr = 1 ; rootr< t+1; rootr++){
+  console.log("Region"+ rootr+"-->"+region[rootr+"Region"] )
+  }
 
 var  home = document.getElementById("Ev");
 var workPlace = document.getElementById('IsYeri');
 var Depo = document.getElementById('depo');
 /* JSON TYPES */
+var user={};
+var call={};
+var region ={};
 text = { 
   "date": currentDate,
    "AboneNo":currentAccountNumber,
@@ -367,10 +436,13 @@ text = {
  "GPRS":currentGPRS,
  "InternetHatti":currentnetLine,
 "MontajSorumlusu":currentnetInstManager,
-
-
-  }
+"Kullanıcılar":user,
+"AranacakKisiler":call,
+"Acik_Kapali":which,
+"HaftasonuHizmet":weekEnd,
+"Bölgeler":region
+}
 
 console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)
 
-}
+}}
