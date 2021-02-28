@@ -442,7 +442,8 @@ text = {
 "HaftasonuHizmet":weekEnd,
 "Bölgeler":region
 }
-
+var userInfo = JSON.stringify(text);
+eel.toDataBase(userInfo)
 console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)
 
 }}

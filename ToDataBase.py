@@ -6,9 +6,6 @@ import youtube_dl
 eel.init('web')
 
 @eel.expose
-def ytdownload(data):
-    link = data
-    ydl_opts = {}
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl :
-        ydl.download([link])
-eel.start('index.html', size=(1000, 600))
+def toDataBase(data):
+    print("Name", data['date'])
+eel.start('web/index.html', size=(1000, 600))
