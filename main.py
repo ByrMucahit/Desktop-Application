@@ -1,20 +1,14 @@
 
-import eel,csv,json
+import eel
 
 # Write @eel.expose before a python
 
-eel.init('web')
-eel.adding('Running javascript function from python side ')
+
 
 @eel.expose
 def hellopython(r):
     print(r)
+    eel.show(r)
 
-#my_options = {
- #   'mode': 'chrome-app',
-  #  'host': 'localhost',
-   # 'port': 8089,
-    #'chromeFlags': ['--start-fullscreen']
-#}
-
+eel.init('web')
 eel.start('main.html')

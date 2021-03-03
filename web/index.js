@@ -1,11 +1,4 @@
-function yt() {
-  var data = document.getElementById("data").value
-  eel.ytdownload(data)(setImage)
-}
 
-
-
-eel.expose(adding);
 function adding() {
   /* Dates Values */
   var dates = document.getElementById('dates');
@@ -443,7 +436,8 @@ text = {
 "Bölgeler":region
 }
 var userInfo = JSON.stringify(text);
-eel.hellopython(('Running python function from ajvascript side') (function(ret){console.log(ret)}))
+eel.hellopython("Hello");
 /*console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)*/
 
 }}
+
