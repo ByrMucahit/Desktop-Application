@@ -436,7 +436,7 @@ text = {
 "Bölgeler":region
 }
 var userInfo = JSON.stringify(text);
-eel.hellopython("Hello");
+eel.hellopython(userInfo);
 /*console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)*/
 
 }}
