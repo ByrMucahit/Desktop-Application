@@ -6,8 +6,7 @@ import json
 
 @eel.expose
 def hellopython(text):
-    
-     print(text[' "date"'])
+    print(text["Kullanıcılar"].get("1id"))
 
 
    

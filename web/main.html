@@ -112,8 +112,8 @@
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="iş Yeri" id="IsYeri">
-                <label class="form-check-label" for="IsYeri">
+                <input class="form-check-input" type="checkbox" value="iş Yeri" id="workPlace">
+                <label class="form-check-label" for="workPlace">
                     İş Yeri
                 </label>
             </div>
@@ -290,7 +290,7 @@
                                             <div class="form-group">
                                                 <label for="eMailKullanıcıNo3">Yetkilisi</label>
                                                 <input type="email" class="form-control" id="eMailKullanıcıNo3"
-                                                    placeholder="Enter email ID">
+                                                    placeholder="Lütfen Yetkilisini Giriniz.">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -981,14 +981,22 @@
 
 
         /* CheckBox */
-        var home = null;
-        home = document.getElementById("Ev");
-        var workPlace = null;
-        workPlace = document.getElementById('IsYeri');
-
-        var Depo = null;
-        Depo = document.getElementById('depo');
-
+        var CurrentHome = null;
+        var home = document.getElementById("Ev");
+        if(home.checked == true){
+             CurrentHome = home.value;
+        }
+ 
+        var CurrentworkPlace = null;
+        var workPlace = document.getElementById('workPlace');
+        if(workPlace.checked == true){
+            CurrentworkPlace = workPlace.value;
+        }
+        var CurrentDepo = null;
+        var Depo = document.getElementById('depo');
+        if(Depo.checked == true){
+            CurrentDepo = Depo.value;
+        }
         //console.log("Home -->" + home.value+ "\nworkPlace --> " + workPlace.value+ "\n Depo--> " + Depo.value );
 
 
@@ -1412,9 +1420,7 @@
               console.log("Region"+ rootr+"-->"+region[rootr+"Region"] )
               }*/
 
-            var home = document.getElementById("Ev");
-            var workPlace = document.getElementById('IsYeri');
-            var Depo = document.getElementById('depo');
+
             /* JSON TYPES */
            
             
@@ -1423,6 +1429,7 @@
              console.log(typeof userInfo);
             
     }
+    
     var dizi = {'hello': 'Hey'}
             /*console.log("date --> "+text.date + "\nAbone No ---> "+currentAccountNumber+ "\n Abone Adı --> "+currentAccountName+ "\n AboneTelefon --> " +currentAccountTelephone)*/
             text = {
@@ -1434,9 +1441,9 @@
                 "AboneAdress": currentAccountAdress,
                 "AboneEmail": currentAccountEmail,
                 "AboneAdresAciklamasi": currentAccountAdressExp,
-                "EvTesisTipi": home.value,
-                "Isyeri:": workPlace.value,
-                "Depo": Depo.value,
+                "EvTesisTipi": CurrentHome,
+                "Isyeri": CurrentworkPlace,
+                "Depo": CurrentDepo,
                 "PanelTipi": currentPanelType,
                 "BağlantıTipi": currentTypeOfConnection,
                 "SatisPersoneli": currentSellingPersonel,
