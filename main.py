@@ -30,21 +30,24 @@ def hellopython(text):
     open_close = text['Acik_Kapali']
     weekend_Service = text['HaftasonuHizmet']
     Regions = text['Bolgeler']
-    print(Regions)
     
-    con = sqlite3.connect('mydatabase.db')
-    cursorOb = con.cursor()
-
+    # Create DataBase And Connection
+    conn = sqlite3.connect('mydatabase.db')
+    c = conn.cursor()
+    conn.execute('''CREATE TABLE IF NOT EXISTS Aybekler
+                (ID INT PRIMARY KEY NOT NULL) ''')
+    
     try:
-        
-        print("Connection is established: Database is created in memory")
+        conn.execute("INSERT INTO Aybekler VALUES(1)")
+        conn.commit
+        print("got it")
+        cursor = conn.execute("SELECT ID FROM Aybekler")
+        for row in cursor:
+            print("id -> ",row[0])  
     except Error:
         print(Error)
+    conn.close()
+
     
-
-
-
-   
-
 eel.init('web')
 eel.start('main.html')
