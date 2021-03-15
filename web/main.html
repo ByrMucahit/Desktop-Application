@@ -783,6 +783,58 @@
 </footer>
 
 <script>
+
+
+
+const personelCont = document.getElementById('dynamicField');
+function AddPerson() {
+    var container = ``;
+    i = i + 1 ;
+    container += `<div class="container">
+    <div class="row gutters">
+        <div class="card h-100">
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mb-2 text-primary">Kullanıcı No ${i}:</h6>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="fullNameKullanıcıNo${i}">Kullanıcı Adı :</label>
+                                    <input type="text" class="form-control" id="fullNameKullanıcıNo${i}"
+                                        placeholder="Lütfen Kullanıcı Adı Giriniz">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="eMailKullanıcıNo4">Yetkilisi</label>
+                                    <input type="text" class="form-control" id="eMailKullanıcıNo${i}"
+                                        placeholder="Lütfen Yetkili Giriniz">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="passwordKullanıcıNo${i}">Parolası</label>
+                                    <input type="password" class="form-control" id="passwordKullanıcıNo${i}"
+                                        placeholder="Lütfen Parola giriniz.">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`
+personelCont.innerHTML +=container;
+}
+
+
+
+
 /* Add Region */
 const personelReg= document.getElementById('rowg');
 function Region(){
@@ -880,6 +932,7 @@ personelCall.innerHTML +=container;
 /*--------------------------------------------------------------ADD TO DATABASE ----------------------------------------------------------------*/   
 function adding() {
   console.log("Hey add")
+  
   /* Dates Values */
   var dates = document.getElementById('dates');
   var currentDate = dates.value;
@@ -1148,15 +1201,15 @@ var region = {}
 
   /* Static */
   /*--------USER - 1 ------------- */
-  user[1 + "id"] = user1Name;
+  user[1 + "name"] = user1Name.value;
   user[1 + "email"] = user1Email;
   user[1 + "password"] = user1Password;
   /*--------USER - 2 ------------- */
-  user[2 + "id"] = user2Name;
+  user[2 + "name"] = user2Name.value;
   user[2 + "email"] = user2Email;
   user[2 + "password"] = user2Password;
   /*--------USER - 3 ------------- */
-  user[3 + "id"] = user3Name;
+  user[3 + "name"] = user3Name.value;
   user[3 + "email"] = user3Email;
   user[3 + "password"] = user3Password;
 
@@ -1172,9 +1225,10 @@ var region = {}
         }
         var pers = $('#eMailKullanıcıNo' + n).val();
         var pss = $('#passwordKullanıcıNo' + n).val();
+        var name = $('#fullNameKullanıcıNo' + n).val();
         console.log('id: ' + id + ' value:' + value + "\n resp --->" + pers + " password -->" + pss);
 
-        user[n + "id"] = id;
+        user[n + "name"] = name;
         user[n + "email"] = pers;
         user[n + "password"] = pss;
       }
@@ -1315,7 +1369,10 @@ var region = {}
     "AranacakKisiler": call,
     "Acik_Kapali": which,
     "HaftasonuHizmet": weekEnd,
-    "Bolgeler": region
+    "Bolgeler": region,
+    "BolgeSayisi": t,
+    "AranacakKisiSayisi":m,
+    "KullaniciSayisi":i
   }
   var userInfo = JSON.stringify(text);
   eel.hellopython(text);
