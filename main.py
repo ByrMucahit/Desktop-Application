@@ -38,11 +38,11 @@ def hellopython(text):
     personeWhoWillCalled = text['AranacakKisiler']
     Region = text['Bolgeler']
     # Create DataBase And Connection
-    conn = sqlite3.connect("Demo.db")
+    conn = sqlite3.connect("trials.db")
     c = conn.cursor()
    
     # QUERY TRANSACTION
-    c.execute("CREATE TABLE IF NOT EXISTS send (ID  REAL ,DATE TEXT, NAME TEXT, TELEPHONE TEXT, PHONE TEXT, ADRESS TEXT, EMAIL TEXT, ADRESSEXP TEXT, HOMEFACILITYTYPE TEXT, WORKPLACEFACILITY TEXT, STOREFACILITY TEXT, PANELTYPE TEXT, CONNECTIONTYPE TEXT, SELLER TEXT, PHONELINE TEXT, GPRS TEXT, NETLINE TEXT, MONTAJ_SORUMLUSU TEXT, KullaniciSayisi TEXT, AranacakKisiSayisi TEXT, BolgeSayisi TEXT, User_Name TEXT, User_Email TEXT, User_Password TEXT, Name_Of_Person_Who_Will_Called TEXT, Password_Of_Person_Who_Will_Called TEXT, Telephone_Of_Person_Who_Will_Called TEXT, gsm1_Of_Person_Who_Will_Called TEXT, gsm2_Of_Person_Who_Will_Called TEXT, gsm3_Of_Person_Who_Will_Called TEXT, Region TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS send (ID  INTEGER PRIMARY KEY ,DATE TEXT, NAME TEXT, TELEPHONE TEXT, PHONE TEXT, ADRESS TEXT, EMAIL TEXT, ADRESSEXP TEXT, HOMEFACILITYTYPE TEXT, WORKPLACEFACILITY TEXT, STOREFACILITY TEXT, PANELTYPE TEXT, CONNECTIONTYPE TEXT, SELLER TEXT, PHONELINE TEXT, GPRS TEXT, NETLINE TEXT, MONTAJ_SORUMLUSU TEXT, KullaniciSayisi TEXT, AranacakKisiSayisi TEXT, BolgeSayisi TEXT, User_Name TEXT, User_Email TEXT, User_Password TEXT, Name_Of_Person_Who_Will_Called TEXT, Password_Of_Person_Who_Will_Called TEXT, Telephone_Of_Person_Who_Will_Called TEXT, gsm1_Of_Person_Who_Will_Called TEXT, gsm2_Of_Person_Who_Will_Called TEXT, gsm3_Of_Person_Who_Will_Called TEXT, Region TEXT)")
     c.execute("INSERT INTO send (ID, DATE, NAME, TELEPHONE, PHONE, ADRESS, EMAIL, ADRESSEXP, HOMEFACILITYTYPE, WORKPLACEFACILITY, STOREFACILITY, PANELTYPE, CONNECTIONTYPE, SELLER, PHONELINE, GPRS, NETLINE, MONTAJ_SORUMLUSU,KullaniciSayisi , AranacakKisiSayisi , BolgeSayisi ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Date, Name_Of_Account, Account_Telephone, Account_Phone, Account_Adress, Account_Email, Address_Explanation, Type_Of_facility_Home, Type_Of_facility_WorkPlace, Type_Of_Facility_Store, Type_Of_Panel, Type_Of_Connection, Seling_Personel, Line_Of_Phone, GPRS, Line_Of_Net, assembly_Personel, userCount, countWhowillCalling, regionCount))
     conn.commit()
 
@@ -76,13 +76,16 @@ def hellopython(text):
         email = user[str(i)+"email"]
         print("{} . password --> {}".format(i,user[str(i)+"password"]))
         password = user[str(i)+"password"]
-        c.execute("INSERT INTO send (User_Name, User_Email, User_Password) VALUES (?, ?, ?) ", (name, email, password))
-    print("User Info has been added to DataBase...")
-    user_cursor = c.execute("SELECT User_Name, User_Email, User_Password From send")
+        c.execute("INSERT INTO send (User_Name, User_Email, User_Password) VALUES (?, ?, ?)", (name, email, password))
+        print("User Info has been added to DataBase...")
+    
+    user_cursor = c.execute("SELECT User_Name, User_Email, User_Password From send WHERE ID = 544444")
+    counter = 0 
     for user in user_cursor:
-        print("Name --> ", user[0])
-        print("Email -> ", user[1])
-        print("Password -> ", user[2])
+        counter += 1
+        print("{}. Name --> {} ".format(counter, user[0]))
+        print("{}. Email -> {} ".format(counter, user[1]))
+        print("{}. Password -> {} ".format(counter, user[2]))
     
     
     for j in range(1,countWhowillCalling+1):
@@ -120,7 +123,7 @@ def hellopython(text):
         print("{} . Bolge --> {}".format(t,Region[str(t)+"Region"]))
         region = Region[str(t)+"Region"]
         c.execute("INSERT INTO send (Region) VALUES(?)", [region])
-    regionsCursor = c.execute('SELECT Region FROM send')
+    regionsCursor = c.execute('SELECT Region FROM send WHERE ID = 111')
     
     for  counter,reg in enumerate(regionsCursor):
         print("{}. Region Into Database --> {} ".format(counter,reg[0]))

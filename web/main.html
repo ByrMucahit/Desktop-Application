@@ -1200,18 +1200,7 @@ var region = {}
   /* Get Dynamic  Elements  from Personel*/
 
   /* Static */
-  /*--------USER - 1 ------------- */
-  user[1 + "name"] = user1Name.value;
-  user[1 + "email"] = user1Email;
-  user[1 + "password"] = user1Password;
-  /*--------USER - 2 ------------- */
-  user[2 + "name"] = user2Name.value;
-  user[2 + "email"] = user2Email;
-  user[2 + "password"] = user2Password;
-  /*--------USER - 3 ------------- */
-  user[3 + "name"] = user3Name.value;
-  user[3 + "email"] = user3Email;
-  user[3 + "password"] = user3Password;
+ 
 
 
   /* Dynamic */
@@ -1220,9 +1209,7 @@ var region = {}
       var value = $(this).val();
       var id = $(this).attr('id');
       if (id === "fullNameKullanıcıNo" + n) {
-        if (n >= 4) {
-
-        }
+        
         var pers = $('#eMailKullanıcıNo' + n).val();
         var pss = $('#passwordKullanıcıNo' + n).val();
         var name = $('#fullNameKullanıcıNo' + n).val();
@@ -1231,12 +1218,15 @@ var region = {}
         user[n + "name"] = name;
         user[n + "email"] = pers;
         user[n + "password"] = pss;
+
+      
+       
       }
     }
   })
 
   for (var s = 1; s < i + 1; s++) {
-    /*console.log("this list ; \n "+"id : "+user[s+"id"] +"\n"+"email :"+user[s+"email"]+"\n"+"password :"+user[s+"password"])*/
+    console.log("this list ; \n "+"id : "+user[s+"id"] +"\n"+"email :"+user[s+"email"]+"\n"+"password :"+user[s+"password"])
   }
 
 

@@ -3,7 +3,7 @@ import sqlite3
 eel.init('web')
 
 def GettingInfoFromDB():
-    conn = sqlite3.connect('Demo.db')
+    conn = sqlite3.connect('trials.db')
     c = conn.cursor()
     cursor = c.execute('SELECT ID, DATE, NAME, TELEPHONE, PHONE, ADRESS, EMAIL, ADRESSEXP, HOMEFACILITYTYPE, WORKPLACEFACILITY, STOREFACILITY, PANELTYPE, CONNECTIONTYPE, SELLER, PHONELINE, GPRS, NETLINE, MONTAJ_SORUMLUSU, KullaniciSayisi, AranacakKisiSayisi, BolgeSayisi FROM send')
 
