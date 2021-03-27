@@ -3,10 +3,20 @@ import sqlite3
 
 
 eel.init('web')
-conn = sqlite3.connect('trials.db')
-c = conn.cursor()
+
 def GettingDetailInfoFromDB():
-    cursor = c.execute("SELECT ID,NAME,EMAIL,TELEPHONE, PHONE, ADRESS, ADRESSEXP, HOMEFACILITYTYPE, WORKPLACEFACILITY, STOREFACILITY, PANELTYPE, CONNECTIONTYPE, SELLER, PHONELINE, GPRS, NETLINE, MONTAJ_SORUMLUSU, KullaniciSayisi, AranacakKisiSayisi, BolgeSayisi FROM send WHERE ID=18121069")
+    con = sqlite3.connect("trials.db")
+    con.text_factory = sqlite3.OptimizedUnicode
+    c = con.cursor()
+    
+    
+    
+ 
+
+
+
+    
+    cursor = c.execute("SELECT User_Id, User_Name, DATE,  User_Email,User_Telephone, User_Phone, User_Address, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type, Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities, Count_Of_Users, Count_Person_Who_Will_Called, Count_Of_Region FROM general_Information")
     for raw in cursor:
         ID = raw[0]
         name = raw[1]
@@ -28,15 +38,25 @@ def GettingDetailInfoFromDB():
         userCount = raw[17]
         personWhoWillCall = raw[18]
         regionCnt = raw[19]
-    eel.info(name,ID,email,telephone, phone, addres, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, userCount, personWhoWillCall, regionCnt)
+        eel.info(name,ID,email,telephone, phone, addres, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, userCount, personWhoWillCall, regionCnt)
     
-    user_cursor = c.execute("SELECT User_Name From Users") 
     
-    for i,raw in enumerate(user_cursor):
-        print("{} . Name From DB --> {} ".format(i, raw[0]))
-        Uname = raw[0]
+    
+    
+    
+
+
+    
        
-        eel.S(Uname)
+def Show_Tables_Inside_Database():
+    con = sqlite3.connect("trials.db")
+    cursor = con.cursor()
+    print(cursor.fetchall())
+
+    cursor.close()
+    con.close()
+    
+
         
         
     
@@ -47,8 +67,8 @@ def GettingDetailInfoFromDB():
     
 
 GettingDetailInfoFromDB()
+Show_Tables_Inside_Database()
 
 
-c.close()
-conn.close()
+
 eel.start('PersonalityInfo.html')

@@ -318,7 +318,7 @@
             const countuser = document.getElementById('usercount');
             const personWhoWillCalledArea = document.getElementById('username');
             const regioncount = document.getElementById('useryetkilisi');
-
+/*
             nameArea.innerHTML = name;
             IDarea.innerHTML = id;
             Email.innerHTML = email;
@@ -339,17 +339,20 @@
             countuser.innerHTML = userCount;
             personWhoWillCalledArea.innerHTML = personWhoWillCalled;
             regioncount.innerHTML = rgnCnt;
-            
+            */
+           console.log("name --> "+name);
             
         }
-        eel.expose(S)
-        function S(ID){
+        eel.expose(userArea)
+        function userArea(ID){
           console.log('ID -->',ID);
           userId = document.getElementById('userids');
 
-          userId.innerHTML = "123123";
+          userId.innerHTML = "123123123";
 
         }
+
+     
     </script>
 </body>
 
