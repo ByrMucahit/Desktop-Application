@@ -115,6 +115,7 @@ def hellopython(text):
             print("Gprs Line --> {}".format(raw[15]))
             print("Network Line --> {}".format(raw[16]))
             print("Montage Response --> {}".format(raw[17]))
+        conn.commit()
         print("Hello")
         
     except(Error):
@@ -140,6 +141,8 @@ def hellopython(text):
             print("{}. User_Name from user info area --> {}".format(i,user[1]))
             print("{}. User_Email from user info area --> {}".format(i,user[2]))
             print("{}. User_Password from user info area --> {}".format(i,user[3]))
+        conn.commit()
+        
     except(Error):
         print("This is Error Message from User Info DB --> {}".format(Error))
         eel.ErrorMessage(Error)
@@ -167,14 +170,15 @@ def hellopython(text):
             print("{} . GSM3 --> {}".format(j,personeWhoWillCalled[str(j)+"GSM3"]))
             gsm3_Of_Person_Who_Will_Called = personeWhoWillCalled[str(j)+"GSM3"]
             
-            c.execute("INSERT INTO User_Who_Will_Called_Stage (User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called) VALUES(?, ?, ?)",(Number_Of_Account, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called))
+            c.execute("INSERT INTO User_Who_Will_Called_Stage (User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called) VALUES(?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called))
             print("Person Who will called Info has been added.")
             
-        calling_person_cursor = c.execute("SELECT User_Reference_id_from_Calling_Section, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called FROM User_Who_Will_Called_Stage")
+        calling_person_cursor = c.execute("SELECT User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called FROM User_Who_Will_Called_Stage")
         for call in calling_person_cursor:
             print(" ID from call db---> {}".format(call[0]))
             print(" Name from call db---> {}".format(call[1]))
             print(" Password from call db --> {}".format(call[2]))
+        conn.commit()
     except(Error):
         print("this is an error message from call db--> {}".format(Error))
         eel.ErrorMessage(Error)
@@ -190,8 +194,9 @@ def hellopython(text):
         
         region_cursor = c.execute("SELECT user_id_from_region_area, Region FROM region_info_area")
         for  counter,reg in enumerate(region_cursor):
-            print("{}. Region Into Database --> {} ".format(counter,reg[0]))
-            print("{}. ID Into Database --> {} ".format(counter,reg[1]))
+            print("{}. Region Into Database --> {} ".format(counter,reg[1]))
+            print("{}. ID Into Database --> {} ".format(counter,reg[0]))
+        conn.commit()
     except(Error):
         print("this is an error message from region db--> {}".format(Error))
         eel.ErrorMessage(Error)
