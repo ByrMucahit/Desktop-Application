@@ -32,25 +32,38 @@
       <script>
         var i = 0;
         eel.expose(hello_js)
-        function hello_js(id, date, name, telephone, Phone, Address, email, adressExp, homeFacility, workPlc, store, panel, connectionType, seller, phoneLine, GPRS, netLine, montajSorumlusu, numberOfUser, CountOfPersonWhoWillCalled, BolgeSayisi){
+        function hello_js(id, date, name, telephone, Phone, Address, email, adressExp, homeFacility, workPlc, store, panel, connectionType, seller, phoneLine, GPRS, netLine, montajSorumlusu){
           i += 1;
           var subInfo = `<tr>
             <th scope="row">${i}</th>
             <td>${name}</td>
             <td>${id}</td>
             <td>${telephone}</td>
-            <td><button>>></button><button  style="background-color: red; color: white;"> X </button></td>
+            <td><button type="click" id="myBtn" value=${id}>>></button><button  style="background-color: red; color: white;"> X </button></td>
             
           </tr>`;
           console.log(id)
           document.getElementById('bdy').innerHTML += subInfo
-          
+
 
         }
 
 
       </script>
 
+      <script>
+        var btn = document.getElementById('myBtn');
+
+        document.body.addEventListener('click', event => {
+          console.log("Hello World");
+          $("button").click(function(){
+            var fired_button = $(this).val();
+            console.log(fired_button);
+            eel.sended(fired_button);
+            window.location.href = "PersonalityInfo.html"
+          })
+        })
+      </script>
 
       <!-- BOOTSTRAP -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">

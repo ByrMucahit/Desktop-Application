@@ -1,11 +1,13 @@
 import eel
 import sqlite3
+
 eel.init('web')
 
+@eel.expose
 def GettingInfoFromDB():
     conn = sqlite3.connect('trials.db')
     c = conn.cursor()
-    cursor = c.execute('SELECT ID, DATE, NAME, TELEPHONE, PHONE, ADRESS, EMAIL, ADRESSEXP, HOMEFACILITYTYPE, WORKPLACEFACILITY, STOREFACILITY, PANELTYPE, CONNECTIONTYPE, SELLER, PHONELINE, GPRS, NETLINE, MONTAJ_SORUMLUSU, KullaniciSayisi, AranacakKisiSayisi, BolgeSayisi FROM send')
+    cursor = c.execute('SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities FROM general_Information')
 
     for raw in cursor:
         print("ID --> ", raw[0])
@@ -62,20 +64,15 @@ def GettingInfoFromDB():
         print("Montaj Sorumlusu -->", raw[17])
         montaj = raw[17]
 
-        print("Kullanıcı Sayisi -->", raw[18])
-        numberOfUser = raw[18]
-
-        print("Aranacak Kisi Sayisi -->", raw[19])
-        aranacakKisiSayisi = raw[19]
-
-        print("Bolge Sayisi --> ", raw[20])
-        region = raw[20]
-        eel.hello_js(ID, date, name, telephone, Phone, Adress, email, adres_Explanation, homeFacility, workPlace, store, panel, connectionType, seller, PhoneLine, GPRS, NetLine, montaj, numberOfUser, aranacakKisiSayisi, region)
+        eel.hello_js(ID, date, name, telephone, Phone, Adress, email, adres_Explanation, homeFacility, workPlace, store, panel, connectionType, seller, PhoneLine, GPRS, NetLine, montaj)
         
     c.close()
     conn.close()
 
-
+@eel.expose
+def sended(value):
+    print("this is other lib ",value)
+    
 
 
 GettingInfoFromDB()

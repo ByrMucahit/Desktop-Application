@@ -98,10 +98,10 @@ def GettingDetailInfoFromDB():
     
     for regCount, reg in enumerate(region_cursors):
         print("---------------------- {}. Region -----------------------------------------".format(regCount))
-        reg_id = raw[0]
+        reg_id = reg[0]
         print("{}. id ---> {}".format(regCount, reg_id))
 
-        region = raw[1]
+        region = reg[1]
         print("{}. region ---> {}".format(regCount, region))
         print("--------------------------------------------------------------------------")
         eel.regionArea(reg_id, region)
@@ -118,7 +118,8 @@ def GettingDetailInfoFromDB():
 
     
     
-
+def whatever(sel):
+    print("Selling -->",sel)
         
         
     
