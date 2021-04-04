@@ -5,10 +5,10 @@ import sqlite3
 eel.init('web')
 
 def GettingDetailInfoFromDB():
-    con = sqlite3.connect("trials.db")
+    con = sqlite3.connect("official.db")
     c = con.cursor()
     specific_id = 8989898
-    cursor = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities FROM general_Information Where User_Id = ? ",(specific_id,) )
+    cursor = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities, open_close, saturday_open_close, sunday_open_close FROM general_Information Where User_Id = ? ",(specific_id,) )
     for count,raw in enumerate(cursor):
         print("--------------- {}. PERSON--------------".format(count))
         ID = raw[0]
@@ -47,7 +47,14 @@ def GettingDetailInfoFromDB():
         print("{}. networkLine --> {}".format(count, networkLine))
         montaj = raw[17]
         print("{}. Montage --> {}".format(count, montaj))
-        eel.info(ID,date,name,telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj)
+
+        Open_Close = raw[18]
+        print("{}. Open_Close --> {}".format(count, Open_Close))
+        saturday_close_open = raw[19]
+        print("{}. saturday_close_open --> {}".format(count, saturday_close_open))
+        sunday_close_open = raw[20]
+        print("{}. sunday_close_open --> {}".format(count, sunday_close_open))
+        eel.info(ID,date,name,telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, Open_Close, saturday_close_open, sunday_close_open)
         print("----------------------------------------------------\n")
     
     user_area_cursor = c.execute("SELECT User_Reference_id_from_User_Section, User_Name, User_Email, User_Password FROM User_Info_Area WHERE User_Reference_id_from_User_Section = ?",(specific_id,))

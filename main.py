@@ -8,7 +8,7 @@ from sqlite3 import Error
 @eel.expose
 def hellopython(text):
     # Create DataBase And Connection
-    conn = sqlite3.connect("trials.db")
+    conn = sqlite3.connect("officialed.db")
     c = conn.cursor()
 
     create_table_general_information = """ CREATE TABLE IF NOT EXISTS general_Information (
@@ -30,9 +30,10 @@ def hellopython(text):
                                                     gprs text,
                                                     Network_Line text,
                                                     Montage_Responsibilities text,
-                                                    Count_Of_Users integer,
-                                                    Count_Person_Who_Will_Called integer,
-                                                    Count_Of_Region integer
+                                                    open_close text,
+                                                    saturday_open_close text,
+                                                    sunday_open_close text
+
     ); """
 
     create_table_user_area = """ CREATE TABLE IF NOT EXISTS User_Info_Area (
@@ -40,6 +41,7 @@ def hellopython(text):
                                                                     User_Name text, 
                                                                     User_Email text, 
                                                                     User_Password text, 
+                                                                    Count_Of_Users integer,
                                                                     FOREIGN KEY(User_Reference_id_from_User_Section) REFERENCES general_Information(User_Id));"""
     
     create_table_calling_area = """ CREATE TABLE IF NOT EXISTS User_Who_Will_Called_Stage (
@@ -50,11 +52,13 @@ def hellopython(text):
                                                                     gsm1_Of_Person_Who_Will_Called text, 
                                                                     gsm2_Of_Person_Who_Will_Called text, 
                                                                     gsm3_Of_Person_Who_Will_Called text, 
+                                                                    Count_Person_Who_Will_Called integer,
                                                                     FOREIGN KEY(User_Reference_id_from_Calling_Section) REFERENCES general_Information(User_Id)); """
 
     create_table_region_area = """ CREATE TABLE IF NOT EXISTS region_info_area ( 
                                                                                 user_id_from_region_area integer, 
                                                                                 Region text, 
+                                                                                Count_Of_Region integer,
                                                                                 FOREIGN KEY(user_id_from_region_area) REFERENCES general_Information(User_Id)) """
 
     try:
@@ -88,14 +92,17 @@ def hellopython(text):
         user = text['Kullanıcılar']
         personeWhoWillCalled = text['AranacakKisiler']
         Region = text['Bolgeler']
+        open_close = text['Acik_Kapali']
+        weekend_close = text['HaftasonuHizmet']
         
     except(Error) :
         print("This is Error Message --> {}".format(Error))   
 
     try:
+        print("Cumartesi", weekend_close['Cumatesi'])
         c.execute(create_table_general_information)
-        c.execute("INSERT INTO general_Information (User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type, Seller, Phone_Line,  gprs, Network_Line, Montage_Responsibilities) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Date, Name_Of_Account, Account_Telephone, Account_Phone, Account_Adress, Account_Email, Address_Explanation, Type_Of_facility_Home, Type_Of_facility_WorkPlace, Type_Of_Facility_Store, Type_Of_Panel, Type_Of_Connection,Seling_Personel, Line_Of_Phone, GPRS, Line_Of_Net, assembly_Personel))
-        users_Informations = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities FROM general_Information")
+        c.execute("INSERT INTO general_Information (User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type, Seller, Phone_Line,  gprs, Network_Line, Montage_Responsibilities, open_close, saturday_open_close, sunday_open_close) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Date, Name_Of_Account, Account_Telephone, Account_Phone, Account_Adress, Account_Email, Address_Explanation, Type_Of_facility_Home, Type_Of_facility_WorkPlace, Type_Of_Facility_Store, Type_Of_Panel, Type_Of_Connection,Seling_Personel, Line_Of_Phone, GPRS, Line_Of_Net, assembly_Personel, open_close, weekend_close['Cumatesi'], weekend_close['Pazar']))
+        users_Informations = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities, open_close, saturday_open_close, sunday_open_close FROM general_Information")
         for raw in users_Informations:
             print("ID FROM DB--> {}".format(raw[0]))
             print("DATE --> {}".format(raw[1]))
@@ -115,12 +122,15 @@ def hellopython(text):
             print("Gprs Line --> {}".format(raw[15]))
             print("Network Line --> {}".format(raw[16]))
             print("Montage Response --> {}".format(raw[17]))
+            print("Open Close --> {}".format(raw[18]))
+            print("Saturday Open Close --> {}".format(raw[19]))
+            print("Sunday Open Close --> {}".format(raw[20]))
         conn.commit()
         print("Hello")
         
     except(Error):
         print("This is error mesafe from General Information -> {}".format(Error))
-        eel.ErrorMessage(Error)
+        #eel.ErrorMessage(Error)
    
     try:
         c = conn.cursor()
@@ -133,14 +143,15 @@ def hellopython(text):
             email = user[str(i)+"email"]
             print("{} . password --> {}".format(i,user[str(i)+"password"]))
             password = user[str(i)+"password"]
-            c.execute("INSERT INTO User_Info_Area (User_Reference_id_from_User_Section, User_Name, User_Email, User_Password) VALUES (?, ?, ?, ?)", (Number_Of_Account, name, email, password))
+            c.execute("INSERT INTO User_Info_Area (User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users) VALUES (?, ?, ?, ?, ?)", (Number_Of_Account, name, email, password, userCount))
 
-        user_info_cursor = c.execute("SELECT User_Reference_id_from_User_Section, User_Name, User_Email, User_Password FROM User_Info_Area")
+        user_info_cursor = c.execute("SELECT User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users FROM User_Info_Area")
         for i,user in enumerate(user_info_cursor):
             print("{}. id from user info area --> {}".format(i,user[0]))
             print("{}. User_Name from user info area --> {}".format(i,user[1]))
             print("{}. User_Email from user info area --> {}".format(i,user[2]))
             print("{}. User_Password from user info area --> {}".format(i,user[3]))
+            print("{}. Count  from user info area --> {}".format(i,user[4]))
         conn.commit()
         
     except(Error):
@@ -170,10 +181,10 @@ def hellopython(text):
             print("{} . GSM3 --> {}".format(j,personeWhoWillCalled[str(j)+"GSM3"]))
             gsm3_Of_Person_Who_Will_Called = personeWhoWillCalled[str(j)+"GSM3"]
             
-            c.execute("INSERT INTO User_Who_Will_Called_Stage (User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called) VALUES(?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called))
+            c.execute("INSERT INTO User_Who_Will_Called_Stage (User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called, Count_Person_Who_Will_Called) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",(Number_Of_Account, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called, countWhowillCalling))
             print("Person Who will called Info has been added.")
             
-        calling_person_cursor = c.execute("SELECT User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called FROM User_Who_Will_Called_Stage")
+        calling_person_cursor = c.execute("SELECT User_Reference_id_from_Calling_Section, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called, Count_Person_Who_Will_Called FROM User_Who_Will_Called_Stage")
         for call in calling_person_cursor:
             print(" ID from call db---> {}".format(call[0]))
             print(" Name from call db---> {}".format(call[1]))
@@ -189,13 +200,15 @@ def hellopython(text):
         for t in range(1, regionCount+1):
             print("{} . Bolge --> {}".format(t,Region[str(t)+"Region"]))
             region = Region[str(t)+"Region"]
-            c.execute('INSERT INTO region_info_area (user_id_from_region_area, Region) VALUES (?, ?)', (Number_Of_Account, region))
+            c.execute('INSERT INTO region_info_area (user_id_from_region_area, Region, Count_Of_Region) VALUES (?, ?, ?)', (Number_Of_Account, region, regionCount))
             
         
-        region_cursor = c.execute("SELECT user_id_from_region_area, Region FROM region_info_area")
+        region_cursor = c.execute("SELECT user_id_from_region_area, Region, Count_Of_Region FROM region_info_area")
         for  counter,reg in enumerate(region_cursor):
             print("{}. Region Into Database --> {} ".format(counter,reg[1]))
             print("{}. ID Into Database --> {} ".format(counter,reg[0]))
+            print("{}. Count Into Database --> {} ".format(counter,reg[2]))
+            
         conn.commit()
     except(Error):
         print("this is an error message from region db--> {}".format(Error))

@@ -208,6 +208,34 @@
                           
                         </div>
                       </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Açılış kapanış izleme istiyor mu ? : </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary" id="open_close_watching">
+                          
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Cumartesi Açılış kapanış izleme istiyor mu ? : </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary" id="saturday_open_close_watching">
+                          
+                        </div>
+                      </div>
+
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Pazar Açılış kapanış izleme istiyor mu ? : </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary" id="sunday_open_close_watching">
+                          
+                        </div>
+                      </div>
 
                       
                     </div>
@@ -259,7 +287,7 @@
 
     <script>
         eel.expose(info)
-        function info(ID,date,name,telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, monetworkLinentaj, montaj){
+        function info(ID,date,name,telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, monetworkLinentaj, montaj,Open_Close, saturday_close_open, sunday_close_open){
             const nameArea = document.getElementById('AccountName');
             const IDarea = document.getElementById('AccountNumber');
             const Email = document.getElementById('AccountEmail');
@@ -280,6 +308,10 @@
             const countuser = document.getElementById('usercount');
             const personWhoWillCalledArea = document.getElementById('username');
             const regioncount = document.getElementById('useryetkilisi');
+            const open_close_place = document.getElementById('open_close_watching');
+            const saturday_close_place = document.getElementById('saturday_open_close_watching');
+            const sunday_close_place = document.getElementById('sunday_open_close_watching');
+            
 
             nameArea.innerHTML = name;
             IDarea.innerHTML = ID;
@@ -298,6 +330,10 @@
             grpsArea.innerHTML = gprs;
             netArea.innerHTML = monetworkLinentaj;
             montajPerson.innerHTML = montaj;
+            open_close_place.innerHTML = Open_Close;
+            saturday_close_place.innerHTML = saturday_close_open;
+            sunday_close_place.innerHTML = sunday_close_open;
+
             
             
            /*

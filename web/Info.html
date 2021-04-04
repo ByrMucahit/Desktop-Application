@@ -10,16 +10,16 @@
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  
+
+
   <title>Informations Into Database</title>
 </head>
 
 <body>
 
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <!--    INFO   -->
   <!-- Button trigger modal -->
-
-
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -45,11 +45,11 @@
                       <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
                         width="150">
                       <div class="mt-3">
-                        <h4 id="titleName">John Doe</h4>
-                        <p class="text-secondary mb-1">Full Stack Developer</p>
+                        <h4 id="titleName"></h4>
+                        <!--<p class="text-secondary mb-1">Full Stack Developer</p>
                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                         <button class="btn btn-primary">Follow</button>
-                        <button class="btn btn-outline-primary">Message</button>
+                        <button class="btn btn-outline-primary">Message</button>-->
                       </div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Email</h6>
+                        <h6 class="mb-0">Email:</h6>
                       </div>
                       <div class="col-sm-9 text-secondary" id="AccountEmail">
 
@@ -90,7 +90,7 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Telefon</h6>
+                        <h6 class="mb-0">Telefon:</h6>
                       </div>
                       <div class="col-sm-9 text-secondary" id="accountTelephone">
 
@@ -215,11 +215,37 @@
                         <h6 class="mb-0">Montaj Sorumlusu : </h6>
                       </div>
                       <div class="col-sm-9 text-secondary" id="montagePers">
+                      </div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Açılış kapanış izleme istiyor mu ? : </h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary" id="open_close_watching">
+
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Cumartesi Açılış kapanış izleme istiyor mu ? : </h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary" id="saturday_open_close_watching">
 
                       </div>
                     </div>
 
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Pazar Açılış kapanış izleme istiyor mu ? : </h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary" id="sunday_open_close_watching">
 
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <hr>
@@ -254,7 +280,7 @@
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Bölgeler
+                     
                       </h6>
                       <hr>
                       <div id="regAboutUsers">
@@ -272,17 +298,21 @@
     </div>
   </div>
   </div>
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
 
-
-
-
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <!-- REAL TIME SEARCH -->
   <div class="input-group">
-    <input oninput="updateResult(this.value)" type="search" class="form-control rounded" placeholder="Abone Numarası Giriniz..." aria-label="Search"
-      aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">Ara</button>
+    <input oninput="updateResult(this.value)" type="search" class="form-control rounded"
+      placeholder="Abone Numarası Giriniz..." aria-label="Search" aria-describedby="search-addon" />
   </div>
 
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <!-- SHOW INFO-->
   <table class="table table-dark">
     <thead>
       <tr>
@@ -293,20 +323,12 @@
       </tr>
     </thead>
     <tbody id="bdy">
-
-
     </tbody>
-
   </table>
+   <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-
-  <!-- Modal Confirm-->
-  <script>
-
-  </script>
-
-
-
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- DEFAULT SHOW IN DATABASE -->
   <script>
     let arr = [];
     let arr_num = {};
@@ -314,7 +336,7 @@
     let arr_tel = {};
     var i = 0;
     eel.expose(hello_js)
-    function hello_js(id, date, name, telephone, Phone, Address, email, adressExp, homeFacility, workPlc, store, panel, connectionType, seller, phoneLine, GPRS, netLine, montajSorumlusu) {
+    function hello_js(id, date, name, telephone, Phone, Address, email, adressExp, homeFacility, workPlc, store, panel, connectionType, seller, phoneLine, GPRS, netLine, montajSorumlusu, open_close, saturday_open_close, sunday_open_close) {
       i += 1;
       var subInfo = `<tr>
             <th scope="row">${i}</th>
@@ -323,58 +345,46 @@
             <td>${telephone}</td>
             <td><button type="button" class="btn btn-primary" value=${id} data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info-circle" aria-hidden="true"></i></button><button value=${id} id="Close" type="button" class="close" aria-label="Close">
   <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
-      arr_num[id]=i;        
-      arr.push(id);
+      arr_num[id] = i;
+      arr.push(String(id));
       arr_name[id] = name;
-      arr_tel[id]=telephone;
+      arr_tel[id] = telephone;
 
       document.getElementById('bdy').innerHTML += subInfo
-
-
     }
-    function updateResult(query) {
-    let resultList = document.querySelector("#bdy");
-    resultList.innerHTML = "";
+    /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-    arr.map(function(algo){
-      
-      console.log("It is algo "+algo);
-        query.split("").map(function (word){
-          console.log("It is word "+word)
-          
-            if(String(algo).indexOf(String(word)) != -1){
-                resultList.innerHTML += `<tr>
-            <th scope="row">${arr_num[algo]}</th>
-            <td>${arr_name[algo]}</td>
-            <td>${algo}</td>
-            <td>${arr_tel[algo]}</td>
-            <td><button type="button" class="btn btn-primary" value=${algo} data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info-circle" aria-hidden="true"></i></button><button value=${algo} id="Close" type="button" class="close" aria-label="Close">
-  <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
-            }
-            else if(resultList===""){
+    /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    /* REAL TIME SEARCH ENGINE */
+    function updateResult(query) {
+      var new_list = [];
+      let resultList = document.querySelector("#bdy"); /* Getting tag's id to doing something*/
+      resultList.innerHTML = "";  /* add nothing*/
+      arr.map(function (algo) { /* arr is an array that has data which includes all id. algo also travels within map through variable named */
+        console.log("It is query " + query); /* It's a given input */
+        query.split(" ").map(function (word) { /*Splitting given words*/
+          console.log("It is word " + word)
+          if (String(algo).indexOf(String(query)) != -1) {
+            if (new_list.indexOf(String(algo)) === -1) {
+              new_list.push(algo)
               resultList.innerHTML += `<tr>
             <th scope="row">${arr_num[algo]}</th>
             <td>${arr_name[algo]}</td>
             <td>${algo}</td>
             <td>${arr_tel[algo]}</td>
             <td><button type="button" class="btn btn-primary" value=${algo} data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info-circle" aria-hidden="true"></i></button><button value=${algo} id="Close" type="button" class="close" aria-label="Close">
-  <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
-
+            <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
             }
-            console.log(arr_num[algo])
+          }
         })
-    })
-}
-
+      })
+    }
+ /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
   </script>
 
-  <script>
+   <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-   
-
-
-  </script>
-
+   <!--  CLOSE TRANSACTION -->
   <script>
     var btn = document.getElementById('myBtn');
 
@@ -386,28 +396,23 @@
         if ((this).id == "Close") {
 
           swal({
-        title: "Emin misiniz?",
-        text: "Silmek istediğinize emin misiniz ?",
-        icon: "warning",
-        buttons: ["iptal",true],
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          eel.Delete_Data_From_Db(fireds_button)
-          swal(ids+ " Ürününüz silinmiştir.", {
-            icon: "success",
-          });
-          location.replace('profile.html');
-        } else {
-          swal("Ürün silimi iptal edilmiştir. !!!");
-        }});         
+            title: "Emin misiniz?",
+            text: "Silmek istediğinize emin misiniz ?",
+            icon: "warning",
+            buttons: ["iptal", true],
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                eel.Delete_Data_From_Db(fireds_button)
+                swal(fireds_button + "'li Kişi Listenizden silinmiştir.", {
+                  icon: "success",
+                });
 
-          
-
-
-
-         
+              } else {
+                swal("Silme işlemi iptal edilmiştir. !!!");
+              }
+            });
         }
         var fired_button = $(this).val();
         console.log(fired_button);
@@ -417,9 +422,11 @@
     })
   </script>
 
+
+<!-- ||||   SHOW GENERAL INFORMATION       ||| -->
   <script>
     eel.expose(info)
-    function info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj) {
+    function info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close) {
       var Tname = document.getElementById('titleName');
       var Aname = document.getElementById('AccountName');
       /*console.log("name:"+name);*/
@@ -474,17 +481,35 @@
       var Area_montage = document.getElementById('montagePers');
       Area_montage.innerHTML = montaj;
 
+      const open_close_place = document.getElementById('open_close_watching');
+      const saturday_close_place = document.getElementById('saturday_open_close_watching');
+      const sunday_close_place = document.getElementById('sunday_open_close_watching');
+
+      open_close_place.innerHTML = open_close;
+      saturday_close_place.innerHTML = saturday_open_close;
+      sunday_close_place.innerHTML = sunday_open_close;
+
+
     }
 
-    var usersInfo = ``;
-    eel.expose(userArea)
-    function userArea(user_area_Id, user_area_Name, user_area_email, user_area_password) {
 
-      usersInfo += ` <hr>
-                          <small id="">Abone Numarası</small>
-                          <div   id="usercount">${user_area_Id}
-                            
-                          </div>
+    /*--------------------------------- SHOW USER INFORMATION ----------------------------------------- */
+    
+    eel.expose(userArea)
+    var user_list_count = 0;
+    
+    var usersInfo = ``;
+    function userArea(user_area_Id, user_area_Name, user_area_email, user_area_password, count) {
+
+     
+
+     
+      
+      
+      if(user_list_count < count){
+        user_list_count+=1;
+        console.log("i-> ", user_list_count);
+        usersInfo += ` <hr>
                           <small id="">Abone İsmi :</small>
                           <div  id="username"> ${user_area_Name}
                             
@@ -503,16 +528,22 @@
 
       dynamicInfo = document.getElementById('informationAboutUsers');
       dynamicInfo.innerHTML = usersInfo;
+      }
+      
+  
+     
 
     }
     var callInfo = ``;
+    var call_list_count = 0;
+    /*------------------------------------------ SHOW CALLING AREA   -------------------------------------------------------------*/
     eel.expose(callArea)
-    function callArea(call_id, call_name, call_Password, call_Telephone, call_gsm1, call_gsm2, call_gsm3) {
-      callInfo += `<hr>
-                          <small id="">Abone Numarası  :</small>
-                          <div   id="userids"> ${call_id}
-                        
-                          </div>
+    function callArea(call_id, call_name, call_Password, call_Telephone, call_gsm1, call_gsm2, call_gsm3, countCal) {
+
+      if(call_list_count < countCal ){
+        call_list_count += 1;
+        callInfo += `<hr>
+                          
                           <small id="">Aranacak Kisi İsmi :</small>
                           <div   id="c"> ${call_name}
                             
@@ -537,21 +568,29 @@
                             <hr>`;
       callarea = document.getElementById('peopleWhoWillCalledArea');
       callarea.innerHTML = callInfo;
+      }
+      
 
     }
+
+     /*------------------------------------------ SHOW REGION AREA   -------------------------------------------------------------*/
     var regInfo = ``;
+    var region_list_count = 0;
     eel.expose(regionArea)
-    function regionArea(user_id_from_region_area, Region) {
-      regInfo += `<ul class="list-group list-group-flush" id="regionAr"></ul>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Id :</h6>
-                        <span class="text-secondary">${user_id_from_region_area}</span>
+    function regionArea(user_id_from_region_area, Region, regC) {
+
+      if(region_list_count < regC){
+        region_list_count += 1;
+        regInfo += `<ul class="list-group list-group-flush" id="regionAr"></ul>
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Bölge</h6>
-                        <span class="text-secondary">${Region}</span>
+                        <span class="text-secondary" style="margin-left: 2%">${Region}</span>
                       </ul>
                      `;
       regAr = document.getElementById('regionclass');
       regAr.innerHTML = regInfo;
+
+      }
+     
     }
   </script>
 
@@ -570,14 +609,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
-
-    
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
