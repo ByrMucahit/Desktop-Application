@@ -127,6 +127,8 @@ def hellopython(text):
             print("Sunday Open Close --> {}".format(raw[20]))
         conn.commit()
         print("Hello")
+    except sqlite3.IntegrityError as e:
+        print("Please Different ID",e)
         
     except(Error):
         print("This is error mesafe from General Information -> {}".format(Error))

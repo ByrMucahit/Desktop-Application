@@ -136,6 +136,8 @@ def sended(value):
             print("{}. sunday_open_close --> {}".format(count, sunday_open_close))
             eel.info(ID,date,name,telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close)
             print("----------------------------------------------------\n")
+    
+
     except:
         print("Error has been occupied from General Info")
 
