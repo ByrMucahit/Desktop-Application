@@ -4,7 +4,7 @@ import json
 import sqlite3
 from sqlite3 import Error
 # Write @eel.expose before a python
-
+eel.init('web')
 @eel.expose
 def hellopython(text):
     # Create DataBase And Connection
@@ -21,12 +21,12 @@ def hellopython(text):
                                                     User_Email text,
                                                     User_Adress_Explanation text,
                                                     Home_Facility_Type text,
-                                                    Work_Facility_Type text,
+                                                    Work_Facility_TypWWe text,
                                                     Store_Facility_Type text,
                                                     Panel_Type text,
                                                     Connection_Type text,
                                                     Seller text,
-                                                    Phone_Line text,
+                                                    Phone_Line text,W
                                                     gprs text,
                                                     Network_Line text,
                                                     Montage_Responsibilities text,
@@ -221,5 +221,5 @@ def hellopython(text):
     c.close()
     conn.close()
   
-eel.init('web')
+
 eel.start('main.html')
