@@ -1,11 +1,12 @@
 import eel
 import sqlite3
+from sqlite3 import Error
+
 
 eel.init('web')
-
 @eel.expose
 def GettingInfoFromDB():
-    conn = sqlite3.connect('officialed.db')
+    conn = sqlite3.connect('aybeklersDB.db')
     c = conn.cursor()
     cursor = c.execute('SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities,  open_close, saturday_open_close, sunday_open_close FROM general_Information')
 
@@ -82,7 +83,7 @@ GettingInfoFromDB()
 def sended(value):
     try:
         print("this is other lib ",value)
-        con = sqlite3.connect("officialed.db")
+        con = sqlite3.connect("aybeklerDB.db")
         c = con.cursor()
         specific_id = value
         cursor = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities, open_close, saturday_open_close, sunday_open_close FROM general_Information Where User_Id = ? ",(specific_id,) )

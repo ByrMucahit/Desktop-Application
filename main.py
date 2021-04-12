@@ -7,6 +7,7 @@ from sqlite3 import Error
 eel.init('web')
 @eel.expose
 def hellopython(text):
+    print("It is working")
     # Create DataBase And Connection
     conn = sqlite3.connect("officialed.db")
     c = conn.cursor()
@@ -125,6 +126,7 @@ def hellopython(text):
             print("Open Close --> {}".format(raw[18]))
             print("Saturday Open Close --> {}".format(raw[19]))
             print("Sunday Open Close --> {}".format(raw[20]))
+            print("GENERAL INFORMATION IS OKEY") 
         conn.commit()
         print("Hello")
     except sqlite3.IntegrityError as e:

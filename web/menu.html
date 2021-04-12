@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<script type="text/javascript" src="eel.js"></script>-->
+    <script type="text/javascript" src="eel.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
@@ -72,12 +73,15 @@
     <!-- ######################################## SIDE BAR #######################################################-->
     <div id="side-bar">
         <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px" id="side-bar">
-            <a href="#" class="w3-bar-item w3-button" id="home" onclick="myFunction(this.id)"><i
+            <a href="#" class="w3-bar-item w3-button" id="main" onclick="myFunction(this.id)"><i
                     class="fa fa-home"></i></a>
+        <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px" id="side-bar">
+            <a href="#" class="w3-bar-item w3-button" id="home" onclick="myFunction(this.id)"><i
+                    class="far fa-address-book"></i></a>
             <a href="#" class="w3-bar-item w3-button" id="search" onclick="myFunction(this.id)"><i
                     class="fa fa-search"></i></a>
-            <a href="#" class="w3-bar-item w3-button" id="envelope" onclick="myFunction(this.id)"><i
-                    class="fa fa-envelope"></i></a>
+            <a href="#" class="w3-bar-item w3-button" id="envelope" onclick="myFunction(this.id)"><i class="far fa-address-book"></i>
+            </a>
             <a href="#" class="w3-bar-item w3-button" id="globe" onclick="myFunction(this.id)"><i
                     class="fa fa-globe"></i></a>
             <a href="#" class="w3-bar-item w3-button" id="trash" onclick="myFunction(this.id)"><i
@@ -88,10 +92,7 @@
 
     <!--##################################### Main ################################################################-->
     <div id="content-main" style="display: none;">
-        <a style="margin-left: 5%;" href="menu.html"><i class="fas fa-arrow-left"
-                style="margin-right: 1%;">Menu</i></a><br>
-
-
+        
         <form class="my-form">
 
             <h1 style="text-align: center;">TÜRKİYE'NİN ALARM MERKEZİ MARKASI</h1>
@@ -189,7 +190,7 @@
                 <!-- Type Of Connection-->
                 <div id="panels" class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Bağlantı Tipi :</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Bağlantı Tipi:</span>
                     </div>
                     <input id="panelCon" type="text" class="form-control" aria-label="Default"
                         aria-describedby="inputGroup-sizing-default">
@@ -414,7 +415,7 @@
 
                 <button type="button" class="btn btn-secondary btn-lg" id="person" onclick="AddPerson()">+</button>
 
-                <script> var i = 4;</script>
+                <script> var userC = 4;</script>
                 <script> var m = 4;</script>
                 <script> var t = 12;</script>
                 <script> /* JSON */
@@ -442,7 +443,7 @@
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="fullNameAranacakKisi1">Adı Soyadı :</label>
+                                                        <label  for="fullNameAranacakKisi1">Adı Soyadı :</label>
                                                         <input type="text" class="form-control"
                                                             id="fullNameAranacakKisi1"
                                                             placeholder="Lütfen Ad ve Soyad Giriniz...">
@@ -867,8 +868,16 @@
         function myFunction(id) {
             var x = document.getElementsByClassName("w3-bar-item w3-button")[0].id;
             if (id === "home") {
+               /* Title Display */
+               document.getElementById('general-title').style.display="none";
+                document.getElementById('top-title').style.display="none";
+
+                /* Icon Display */
+                document.getElementById('ayb_icon').style.display="none";
+                
                 /* Main Visibility */
-                document.getElementById('')
+                document.getElementById("real-time-search").style.display = "none";
+                document.getElementById('table-info').style.display="none"
                 /* When I clicked on home*/
                 document.getElementById('search').style.background = "unset"
                 document.getElementById('search').style.color = "unset"
@@ -887,8 +896,17 @@
                 document.getElementById('content-main').style.display = "block";
             }
             else if (id === "search") {
+                 /* Title Display */
+                 document.getElementById('general-title').style.display="none";
+                document.getElementById('top-title').style.display="none";
+
+                 /* Icon Display */
+                 document.getElementById('ayb_icon').style.display="none";
+
                 /* Main Visibility */
                 document.getElementById('content-main').style.display = "none";
+                document.getElementById("real-time-search").style.display = "flex";
+                document.getElementById('table-info').style.display="table";
 
                 /* When I clicked on search*/
                 document.getElementById('home').style.background = "unset"
@@ -903,11 +921,13 @@
                 document.getElementById('search').style.background = "white"
                 document.getElementById('search').style.color = "black"
 
-                document.getElementById('table-info').style.display="block";
-                document.getElementById('real-time-search').style.display= "block";
-                document.getElementById('Show_info').style.display = "block";
+
             }
             else if (id === "envelope") {
+                /* Visibility */
+                document.getElementById('Show_info').style.display = "none";
+                document.getElementById('content-main').style.display = "none";
+
                 /* When I clicked on envelope*/
                 document.getElementById('home').style.background = "unset"
                 document.getElementById('home').style.color = "unset"
@@ -923,6 +943,10 @@
                 document.getElementById('envelope').style.color = "black"
             }
             else if (id === "globe") {
+                /* Visibility */
+                document.getElementById('Show_info').style.display = "none";
+                document.getElementById('content-main').style.display = "none";
+
                 /* When I clicked on globe*/
                 document.getElementById('home').style.background = "unset"
                 document.getElementById('home').style.color = "unset"
@@ -936,8 +960,14 @@
 
                 document.getElementById('globe').style.background = "white"
                 document.getElementById('globe').style.color = "black"
+
+
             }
             else if (id === "trash") {
+                /* Visibility */
+                document.getElementById('Show_info').style.display = "none";
+
+
                 /* When I clicked on trash */
                 document.getElementById('home').style.background = "unset"
                 document.getElementById('home').style.color = "unset"
@@ -965,7 +995,7 @@
         const personelCont = document.getElementById('dynamicField');
         function AddPerson() {
             var container = ``;
-            i = i + 1;
+            userC = userC + 1;
             container += `<div class="container">
     <div class="row gutters">
         <div class="card h-100">
@@ -974,26 +1004,26 @@
                     <div class="card-body">
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Kullanıcı No ${i}:</h6>
+                                <h6 class="mb-2 text-primary">Kullanıcı No ${userC}:</h6>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="fullNameKullanıcıNo${i}">Kullanıcı Adı :</label>
-                                    <input type="text" class="form-control" id="fullNameKullanıcıNo${i}"
+                                    <label for="fullNameKullanıcıNo${userC}" stlye:"">Kullanıcı Adı :</label>
+                                    <input type="text" class="form-control" id="fullNameKullanıcıNo${userC}"
                                         placeholder="Lütfen Kullanıcı Adı Giriniz">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMailKullanıcıNo4">Yetkilisi</label>
-                                    <input type="text" class="form-control" id="eMailKullanıcıNo${i}"
+                                    <input type="text" class="form-control" id="eMailKullanıcıNo${userC}"
                                         placeholder="Lütfen Yetkili Giriniz">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="passwordKullanıcıNo${i}">Parolası</label>
-                                    <input type="password" class="form-control" id="passwordKullanıcıNo${i}"
+                                    <label for="passwordKullanıcıNo${userC}">Parolası</label>
+                                    <input type="password" class="form-control" id="passwordKullanıcıNo${userC}"
                                         placeholder="Lütfen Parola giriniz.">
                                 </div>
                             </div>
@@ -1162,7 +1192,7 @@
                         /* Explanation Of Adress */
                         var AccountExp = document.getElementById('expAdres');
                         var currentAccountAdressExp = AccountExp.value;
-                        // console.log(" Account Explanation  --> " + currentAccountAdressExp);
+                        //console.log(" Account Explanation  --> " + currentAccountAdressExp);
 
 
                         /* CheckBox */
@@ -1185,7 +1215,7 @@
                             curDepo = Depo.value;
                         }
 
-                        console.log("Home -->" + home.value + "\nworkPlace --> " + workPlace.value + "\n Depo--> " + Depo.value);
+                        //console.log("Home -->" + cuHome + "\nworkPlace --> " + curWork + "\n Depo--> " + curDepo);
 
 
                         /* Type Of Panel */
@@ -1383,7 +1413,7 @@
                         /*console.log("12. Bölge --> "+ twelvethRegion.value);*/
 
 
-                        console.log("user[1id].value")
+                        //console.log("user[1id].value")
                         var user = {}
                         var call = {}
                         var region = {}
@@ -1553,7 +1583,7 @@
                             "Bolgeler": region,
                             "BolgeSayisi": t,
                             "AranacakKisiSayisi": m,
-                            "KullaniciSayisi": i
+                            "KullaniciSayisi": userC
                         }
                         /*console.log("date --> " + text.date + "\nAbone No ---> " + currentAccountNumber + "\n Abone Adı --> " + currentAccountName + "\n AboneTelefon --> " + currentAccountTelephone)*/
                         eel.hellopython(text);
@@ -2049,7 +2079,7 @@
 
 
     <!-- ######################################## --- Information INTO Database ---###########################################################--->
-    <div id="Show_info" style="display: none;">
+    <div id="Show_info" style="background-color: white;">
 
         <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
         <!--    INFO   -->
@@ -2074,12 +2104,12 @@
                             <div class="row gutters-sm">
                                 <div class="col-md-4 mb-3">
                                     <div class="card">
-                                        <div class="card-body">
-                                            <div class="d-flex flex-column align-items-center text-center">
+                                        <div class="card-body" style="background-color: white;" >
+                                            <div class="d-flex flex-column align-items-center text-center" >
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
                                                     alt="Admin" class="rounded-circle" width="150">
                                                 <div class="mt-3">
-                                                    <h4 id="titleName"></h4>
+                                                    <h4 id="titleName" style="color: black;"></h4>
                                                     <!--<p class="text-secondary mb-1">Full Stack Developer</p>
                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                         <button class="btn btn-primary">Follow</button>
@@ -2094,110 +2124,91 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card mb-3">
-                                        <div class="card-body">
+                                        <div class="card-body"  style="background-color: white;">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Abone Adı :</h6>
+                                                    <h6 class="mb-0" style="color: black;">Abone Adı :</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountName">
+                                                <div class="col-sm-9 text-secondary" id="AccountName" style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Abone Numarası :</h6>
+                                                    <h6 class="mb-0" style="color: black;">Abone Numarası :</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountNumber">
+                                                <div class="col-sm-9 text-secondary" id="AccountNumber" style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Email:</h6>
+                                                    <h6 class="mb-0" style="color: black;">Email:</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountEmail">
+                                                <div class="col-sm-9 text-secondary" id="AccountEmail" style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Telefon:</h6>
+                                                    <h6 class="mb-0" style="color: black;">Telefon:</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="accountTelephone">
+                                                <div class="col-sm-9 text-secondary" id="accountTelephone" style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Cep Telefonu :</h6>
+                                                    <h6 class="mb-0" style="color: black;">Cep Telefonu:</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountPhone">
+                                                <div class="col-sm-9 text-secondary" id="AccountPhone" style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Adres : </h6>
+                                                    <h6 class="mb-0" style="color: black;">Adres: </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountAdress">
+                                                <div class="col-sm-9 text-secondary" id="AccountAdress"  style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Adres Açıklaması: </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Adres Açıklaması: </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="AccountAdressExp">
+                                                <div class="col-sm-9 text-secondary" id="AccountAdressExp"  style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Ev Tesis Tipi :</h6>
+                                                    <h6 class="mb-0"  style="color: black;">Ev Tesis Tipi :</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="homeFacility">
+                                                <div class="col-sm-9 text-secondary" id="homeFacility"  style="color: black;">
 
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">İş Yeri Tesis Tipi :</h6>
+                                                    <h6 class="mb-0"  style="color: black;">İş Yeri Tesis Tipi :</h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="WorkFacility">
+                                                <div class="col-sm-9 text-secondary" id="WorkFacility"  style="color: black;">
 
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Depo Tesis Tipi : </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Depo Tesis Tipi : </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="StorageFacility">
-
-                                                </div>
-                                            </div>
-
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Panel Tipi : </h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary" id="PanelType">
-
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Bağlantı Tipi : </h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary" id="ConType">
+                                                <div class="col-sm-9 text-secondary" id="StorageFacility"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2205,9 +2216,18 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Satış Elemanı: </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Panel Tipi : </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="sellerPerson">
+                                                <div class="col-sm-9 text-secondary" id="PanelType"  style="color: black;">
+
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0"  style="color: black;">Bağlantı Tipi : </h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary" id="ConType"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2215,9 +2235,19 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Telefon Hattı: </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Satış Elemanı: </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="phonel">
+                                                <div class="col-sm-9 text-secondary" id="sellerPerson"  style="color: black;">
+
+                                                </div>
+                                            </div>
+
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0"  style="color: black;">Telefon Hattı: </h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary" id="phonel"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2226,9 +2256,9 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">GPRS: </h6>
+                                                    <h6 class="mb-0"  style="color: black;">GPRS: </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="gprsAre">
+                                                <div class="col-sm-9 text-secondary" id="gprsAre"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2236,9 +2266,9 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">İnternet Hattı : </h6>
+                                                    <h6 class="mb-0"  style="color: black;">İnternet Hattı : </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="netL">
+                                                <div class="col-sm-9 text-secondary" id="netL"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2246,7 +2276,7 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Montaj Sorumlusu : </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Montaj Sorumlusu : </h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary" id="montagePers">
                                                 </div>
@@ -2255,19 +2285,19 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Açılış kapanış izleme istiyor mu ? : </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Açılış kapanış izleme istiyor mu ? : </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="open_close_watching">
+                                                <div class="col-sm-9 text-secondary" id="open_close_watching"  style="color: black;">
 
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Cumartesi Açılış kapanış izleme istiyor mu ? :
+                                                    <h6 class="mb-0"  style="color: black;">Cumartesi Açılış kapanış izleme istiyor mu ? :
                                                     </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="saturday_open_close_watching">
+                                                <div class="col-sm-9 text-secondary" id="saturday_open_close_watching"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2275,9 +2305,9 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <h6 class="mb-0">Pazar Açılış kapanış izleme istiyor mu ? : </h6>
+                                                    <h6 class="mb-0"  style="color: black;">Pazar Açılış kapanış izleme istiyor mu ? : </h6>
                                                 </div>
-                                                <div class="col-sm-9 text-secondary" id="sunday_open_close_watching">
+                                                <div class="col-sm-9 text-secondary" id="sunday_open_close_watching"  style="color: black;">
 
                                                 </div>
                                             </div>
@@ -2288,10 +2318,10 @@
                                     <div class="row gutters-sm">
                                         <div class="col-sm-6 mb-3">
                                             <div class="card h-100">
-                                                <div class="card-body">
-                                                    <h6 class="d-flex align-items-center mb-3"><i
-                                                            class="material-icons text-info mr-2"></i>Kullanıcılar</h6>
-                                                    <div id="informationAboutUsers">
+                                                <div class="card-body" style="background-color: white;">
+                                                    <h6 class="d-flex align-items-center mb-3" style="color: cadetblue;"  ><i
+                                                        class="material-icons text-info mr-2"></i>Kullanıcılar</h6>
+                                                    <div id="informationAboutUsers" style="color: black;">
 
                                                     </div>
                                                 </div>
@@ -2299,11 +2329,11 @@
                                         </div>
                                         <div class="col-sm-6 mb-3">
                                             <div class="card h-100">
-                                                <div class="card-body">
-                                                    <h6 class="d-flex align-items-center mb-3"><i
+                                                <div class="card-body" style="background-color: white;">
+                                                    <h6 class="d-flex align-items-center mb-3"  style="color: black;"><i
                                                             class="material-icons text-info mr-2">Aranacak
                                                             Kisiler </i></h6>
-                                                    <div id="peopleWhoWillCalledArea">
+                                                    <div id="peopleWhoWillCalledArea"  style="color: black;">
 
                                                     </div>
                                                 </div>
@@ -2312,15 +2342,11 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row" style="background-color: white;">
                                     <div class="col-sm-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-
-                                                </h6>
-                                                <hr>
+                                        <div class="card h-100" >
+                                            <div class="card-body" style="background-color: white;">
                                                 <div id="regAboutUsers">
-
                                                 </div>
                                             </div>
                                         </div>
@@ -2333,267 +2359,274 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- REAL TIME SEARCH -->
+        <div class="input-group" id="real-time-search" style="display: none;">
+            <input oninput="updateResult(this.value)" type="search" class="form-control rounded"
+                placeholder="Abone Numarası Giriniz..." aria-label="Search" aria-describedby="search-addon" />
+        </div>
+
+        <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- SHOW INFO-->
+        <table class="table table-dark" id="table-info" style="display: none;">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Ad Soyad</th>
+                    <th scope="col">Abone Numarası</th>
+                    <th scope="col">Telefon Numarası</th>
+                </tr>
+            </thead>
+            <tbody id="bdy">
+            </tbody>
+
+        </table>
+
+        
+        <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
     </div>
-</body>
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-<!-- REAL TIME SEARCH -->
-<div class="input-group" style="display: none;" id="real-time-search">
-    <input oninput="updateResult(this.value)" type="search" class="form-control rounded"
-        placeholder="Abone Numarası Giriniz..." aria-label="Search" aria-describedby="search-addon" />
-</div>
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <a style="margin-left: 1%;" href="menu.html"><i class="fas fa-arrow-left"></i></a>
 
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-<!-- SHOW INFO-->
-<table class="table table-dark" id="table-info" style="display: none;">
-    <thead>
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Ad Soyad</th>
-            <th scope="col">Abone Numarası</th>
-            <th scope="col">Telefon Numarası</th>
-        </tr>
-    </thead>
-    <tbody id="bdy">
-    </tbody>
-
-</table>
-
-<a style="margin-left: 1%;" href="menu.html"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    </div>
 
 
-</div>
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-<!-- DEFAULT SHOW IN DATABASE -->
-<script>
-    let arr = [];
-    let arr_num = {};
-    let arr_name = {};
-    let arr_tel = {};
-    var i = 0;
-    eel.expose(hello_js)
-    function hello_js(id, date, name, telephone, Phone, Address, email, adressExp, homeFacility, workPlc, store, panel, connectionType, seller, phoneLine, GPRS, netLine, montajSorumlusu, open_close, saturday_open_close, sunday_open_close) {
-        i += 1;
-        var subInfo = `<tr>
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- DEFAULT SHOW IN DATABASE -->
+    <script>
+        let arr = [];
+        let arr_num = {};
+        let arr_name = {};
+        let arr_tel = {};
+        var i = 0;
+        eel.expose(hello_js)
+        function hello_js(id, name, telephone) {
+            i += 1;
+            var subInfo = `<tr>
               <th scope="row">${i}</th>
               <td>${name}</td>
               <td>${id}</td>
               <td>${telephone}</td>
               <td><button type="button" class="btn btn-primary" value=${id} data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info-circle" aria-hidden="true"></i></button><button value=${id} id="Close" type="button" class="close" aria-label="Close">
     <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
-        arr_num[id] = i;
-        arr.push(String(id));
-        arr_name[id] = name;
-        arr_tel[id] = telephone;
+            arr_num[id] = i;
+            arr.push(String(id));
+            arr_name[id] = name;
+            arr_tel[id] = telephone;
 
-        document.getElementById('bdy').innerHTML += subInfo
-    }
-    /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+            document.getElementById('bdy').innerHTML += subInfo
+        }
+        /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-    /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    /* REAL TIME SEARCH ENGINE */
-    function updateResult(query) {
-        var new_list = [];
-        let resultList = document.querySelector("#bdy"); /* Getting tag's id to doing something*/
-        resultList.innerHTML = "";  /* add nothing*/
-        arr.map(function (algo) { /* arr is an array that has data which includes all id. algo also travels within map through variable named */
-            console.log("It is query " + query); /* It's a given input */
-            query.split(" ").map(function (word) { /*Splitting given words*/
-                console.log("It is word " + word)
-                if (String(algo).indexOf(String(query)) != -1) {
-                    if (new_list.indexOf(String(algo)) === -1) {
-                        new_list.push(algo)
-                        resultList.innerHTML += `<tr>
+        /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+        /* REAL TIME SEARCH ENGINE */
+        function updateResult(query) {
+            var new_list = [];
+            let resultList = document.querySelector("#bdy"); /* Getting tag's id to doing something*/
+            resultList.innerHTML = "";  /* add nothing*/
+            arr.map(function (algo) { /* arr is an array that has data which includes all id. algo also travels within map through variable named */
+                console.log("It is query " + query); /* It's a given input */
+                query.split(" ").map(function (word) { /*Splitting given words*/
+                    console.log("It is word " + word)
+                    if (String(algo).indexOf(String(query)) != -1) {
+                        if (new_list.indexOf(String(algo)) === -1) {
+                            new_list.push(algo)
+                            resultList.innerHTML += `<tr>
             <th scope="row">${arr_num[algo]}</th>
             <td>${arr_name[algo]}</td>
             <td>${algo}</td>
             <td>${arr_tel[algo]}</td>
             <td><button type="button" class="btn btn-primary" value=${algo} data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info-circle" aria-hidden="true"></i></button><button value=${algo} id="Close" type="button" class="close" aria-label="Close">
             <span style="color:white;" aria-hidden="true">&times;</span></button></td></tr>`;
+                        }
                     }
+                })
+            })
+        }
+ /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    </script>
+
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <!--  CLOSE TRANSACTION -->
+    <script>
+        var btn = document.getElementById('myBtn');
+
+        document.body.addEventListener('click', event => {
+
+            $("button").click(function () {
+
+                var fireds_button = $(this).val();
+                if ((this).id == "Close") {
+
+                    swal({
+                        title: "Emin misiniz?",
+                        text: "Silmek istediğinize emin misiniz ?",
+                        icon: "warning",
+                        buttons: ["iptal", true],
+                        dangerMode: true,
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                eel.Delete_Data_From_Db(fireds_button)
+                                swal(fireds_button + "'li Kişi Listenizden silinmiştir.", {
+                                    icon: "success",
+                                });
+
+                            } else {
+                                swal("Silme işlemi iptal edilmiştir. !!!");
+                            }
+                        });
                 }
+                var fired_button = $(this).val();
+                console.log(fired_button);
+                eel.sended(fired_button);
+
             })
         })
-    }
- /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-</script>
-
-<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
-<!--  CLOSE TRANSACTION -->
-<script>
-    var btn = document.getElementById('myBtn');
-
-    document.body.addEventListener('click', event => {
-
-        $("button").click(function () {
-
-            var fireds_button = $(this).val();
-            if ((this).id == "Close") {
-
-                swal({
-                    title: "Emin misiniz?",
-                    text: "Silmek istediğinize emin misiniz ?",
-                    icon: "warning",
-                    buttons: ["iptal", true],
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            eel.Delete_Data_From_Db(fireds_button)
-                            swal(fireds_button + "'li Kişi Listenizden silinmiştir.", {
-                                icon: "success",
-                            });
-
-                        } else {
-                            swal("Silme işlemi iptal edilmiştir. !!!");
-                        }
-                    });
-            }
-            var fired_button = $(this).val();
-            console.log(fired_button);
-            eel.sended(fired_button);
-
-        })
-    })
-</script>
+    </script>
 
 
-<!-- ||||   SHOW GENERAL INFORMATION       ||| -->
-<script>
-    eel.expose(info)
-    function info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close) {
-        var Tname = document.getElementById('titleName');
-        var Aname = document.getElementById('AccountName');
-        /*console.log("name:"+name);*/
-        Tname.innerHTML = name;
-        Aname.innerHTML = name;
+    <!-- ||||   SHOW GENERAL INFORMATION       ||| -->
+    <script>
+        eel.expose(info)
+        function info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close) {
+            var Tname = document.getElementById('titleName');
+            var Aname = document.getElementById('AccountName');
+            console.log("ID in info "+ ID)
+            /*console.log("name:"+name);*/
+            Tname.innerHTML = name;
+            Aname.innerHTML = name;
 
-        var Anumber = document.getElementById('AccountNumber');
-        Anumber.innerHTML = ID;
+            var Anumber = document.getElementById('AccountNumber');
+            Anumber.innerHTML = ID;
 
-        var Email = document.getElementById('AccountEmail');
-        Email.innerHTML = email;
+            var Email = document.getElementById('AccountEmail');
+            Email.innerHTML = email;
 
-        var Areatelephone = document.getElementById('accountTelephone');
-        Areatelephone.innerHTML = telephone;
+            var Areatelephone = document.getElementById('accountTelephone');
+            Areatelephone.innerHTML = telephone;
 
-        var AreaPhone = document.getElementById('AccountPhone');
-        AreaPhone.innerHTML = phone;
+            var AreaPhone = document.getElementById('AccountPhone');
+            AreaPhone.innerHTML = phone;
 
-        var AreaAdress = document.getElementById('AccountAdress');
-        AreaAdress.innerHTML = addres;
+            var AreaAdress = document.getElementById('AccountAdress');
+            AreaAdress.innerHTML = addres;
 
-        var Area_Adress_Explanation = document.getElementById('AccountAdressExp');
-        Area_Adress_Explanation.innerHTML = adresExp;
+            var Area_Adress_Explanation = document.getElementById('AccountAdressExp');
+            Area_Adress_Explanation.innerHTML = adresExp;
 
-        var Area_Home_Facility = document.getElementById('homeFacility');
-        Area_Home_Facility.innerHTML = Home;
+            var Area_Home_Facility = document.getElementById('homeFacility');
+            Area_Home_Facility.innerHTML = Home;
 
-        var Work_Home_Facility = document.getElementById('WorkFacility');
-        Work_Home_Facility.innerHTML = workPlace;
+            var Work_Home_Facility = document.getElementById('WorkFacility');
+            Work_Home_Facility.innerHTML = workPlace;
 
-        var Store_Home_Facility = document.getElementById('StorageFacility');
-        Store_Home_Facility.innerHTML = storage;
+            var Store_Home_Facility = document.getElementById('StorageFacility');
+            Store_Home_Facility.innerHTML = storage;
 
-        var Area_Panel_Type = document.getElementById('PanelType');
-        Area_Panel_Type.innerHTML = paneltype;
+            var Area_Panel_Type = document.getElementById('PanelType');
+            Area_Panel_Type.innerHTML = paneltype;
 
-        var Area_Connection_Type = document.getElementById('ConType');
-        Area_Connection_Type.innerHTML = conType;
+            var Area_Connection_Type = document.getElementById('ConType');
+            Area_Connection_Type.innerHTML = conType;
 
-        var Area_Seller = document.getElementById('sellerPerson');
-        Area_Seller.innerHTML = Seller;
+            var Area_Seller = document.getElementById('sellerPerson');
+            Area_Seller.innerHTML = Seller;
 
-        var Area_Phone_Line = document.getElementById('phonel')
-        Area_Phone_Line.innerHTML = phoneL;
+            var Area_Phone_Line = document.getElementById('phonel')
+            Area_Phone_Line.innerHTML = phoneL;
 
-        var Area_gprs = document.getElementById('gprsAre')
-        Area_gprs.innerHTML = gprs;
+            var Area_gprs = document.getElementById('gprsAre')
+            Area_gprs.innerHTML = gprs;
 
-        var Area_Network_Line = document.getElementById('netL');
-        Area_Network_Line.innerHTML = networkLine;
+            var Area_Network_Line = document.getElementById('netL');
+            Area_Network_Line.innerHTML = networkLine;
 
-        var Area_montage = document.getElementById('montagePers');
-        Area_montage.innerHTML = montaj;
+            var Area_montage = document.getElementById('montagePers');
+            Area_montage.innerHTML = montaj;
 
-        const open_close_place = document.getElementById('open_close_watching');
-        const saturday_close_place = document.getElementById('saturday_open_close_watching');
-        const sunday_close_place = document.getElementById('sunday_open_close_watching');
+            const open_close_place = document.getElementById('open_close_watching');
+            const saturday_close_place = document.getElementById('saturday_open_close_watching');
+            const sunday_close_place = document.getElementById('sunday_open_close_watching');
 
-        open_close_place.innerHTML = open_close;
-        saturday_close_place.innerHTML = saturday_open_close;
-        sunday_close_place.innerHTML = sunday_open_close;
-
-
-    }
+            open_close_place.innerHTML = open_close;
+            saturday_close_place.innerHTML = saturday_open_close;
+            sunday_close_place.innerHTML = sunday_open_close;
 
 
-    /*--------------------------------- SHOW USER INFORMATION ----------------------------------------- */
+        }
 
-    eel.expose(userArea)
-    var user_list_count = 0;
 
-    var usersInfo = ``;
-    function userArea(user_area_Id, user_area_Name, user_area_email, user_area_password, count) {
+        /*--------------------------------- SHOW USER INFORMATION ----------------------------------------- */
+
+        eel.expose(userArea)
+        var user_list_count = 0;
+
+        var usersInfo = ``;
+        function userArea(user_area_Id, user_area_Name, user_area_email, user_area_password, count) {
 
 
 
 
 
 
-        if (user_list_count < count) {
-            user_list_count += 1;
-            console.log("i-> ", user_list_count);
-            usersInfo += ` <hr>
+            if (user_list_count < count) {
+                user_list_count += 1;
+                console.log("i-> ", user_list_count);
+                usersInfo += ` <hr>
                           <small id="">Abone İsmi :</small>
                           <div  id="username"> ${user_area_Name}
                             
                           </div>
                           
-                          <small id="">Abone Email :</small>
-                          <div   id="useryetkilisi">${user_area_email}
+                          <small id="" >Abone Email :</small>
+                          <div   id="useryetkilisi" style:"background-color: black;">${user_area_email}
                             
                           </div>
                           
                           <small id="">Kullanıcı Sifresi :</small>
-                          <div   id="userpass">${user_area_password}
+                          <div   id="userpass" style:"background-color: black;">${user_area_password}
                             
                           </div>
                           <hr>`;
 
-            dynamicInfo = document.getElementById('informationAboutUsers');
-            dynamicInfo.innerHTML = usersInfo;
+                dynamicInfo = document.getElementById('informationAboutUsers');
+                dynamicInfo.innerHTML = usersInfo;
+            }
+
+
+
+
         }
+        var callInfo = ``;
+        var call_list_count = 0;
+        /*------------------------------------------ SHOW CALLING AREA   -------------------------------------------------------------*/
+        eel.expose(callArea)
+        function callArea(call_id, call_name, call_Password, call_Telephone, call_gsm1, call_gsm2, call_gsm3, countCal) {
 
-
-
-
-    }
-    var callInfo = ``;
-    var call_list_count = 0;
-    /*------------------------------------------ SHOW CALLING AREA   -------------------------------------------------------------*/
-    eel.expose(callArea)
-    function callArea(call_id, call_name, call_Password, call_Telephone, call_gsm1, call_gsm2, call_gsm3, countCal) {
-
-        if (call_list_count < countCal) {
-            call_list_count += 1;
-            callInfo += `<hr>
+            if (call_list_count < countCal) {
+                call_list_count += 1;
+                callInfo += `<hr>
                           
-                          <small id="">Aranacak Kisi İsmi :</small>
-                          <div   id="c"> ${call_name}
+                          <small id="" >Aranacak Kisi İsmi :</small>
+                          <div   id="c" style:"background-color: black;"> ${call_name}
                             
                           </div>
                           <small id="">Aranacak Kisi Sifresi :</small>
-                          <div   id="b">${call_Password}
+                          <div   id="b" style:"background-color: black;">${call_Password}
                             
                           </div>
                           <small id="">Telefon :</small>
@@ -2610,49 +2643,49 @@
                           <div   id="gsm3"> ${call_gsm3}
                           </div>
                             <hr>`;
-            callarea = document.getElementById('peopleWhoWillCalledArea');
-            callarea.innerHTML = callInfo;
+                callarea = document.getElementById('peopleWhoWillCalledArea');
+                callarea.innerHTML = callInfo;
+            }
+
+
         }
 
+        /*------------------------------------------ SHOW REGION AREA   -------------------------------------------------------------*/
+        var regInfo = ``;
+        var region_list_count = 0;
+        eel.expose(regionArea)
+        function regionArea(user_id_from_region_area, Region, regC) {
 
-    }
-
-    /*------------------------------------------ SHOW REGION AREA   -------------------------------------------------------------*/
-    var regInfo = ``;
-    var region_list_count = 0;
-    eel.expose(regionArea)
-    function regionArea(user_id_from_region_area, Region, regC) {
-
-        if (region_list_count < regC) {
-            region_list_count += 1;
-            regInfo += `<ul class="list-group list-group-flush" id="regionAr"></ul>
+            if (region_list_count < regC) {
+                region_list_count += 1;
+                regInfo += `<ul class="list-group list-group-flush" id="regionAr" style="background-color: white;"></ul>
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Bölge</h6>
                         <span class="text-secondary" style="margin-left: 2%">${Region}</span>
                       </ul>
                      `;
-            regAr = document.getElementById('regionclass');
-            regAr.innerHTML = regInfo;
+                regAr = document.getElementById('regionclass');
+                regAr.innerHTML = regInfo;
+
+            }
 
         }
+    </script>
 
-    }
-</script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-
-<script src="sweetalert2.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-    crossorigin="anonymous"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
