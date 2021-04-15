@@ -132,6 +132,7 @@ def hellopython(text):
         print("Hello")
     except sqlite3.IntegrityError as e:
         print("Please Different ID",e)
+        eel.Error_Notifications(e)
         
     except(Error):
         print("This is error mesafe from General Information -> {}".format(Error))
@@ -226,6 +227,30 @@ def hellopython(text):
 
 
 
+@eel.expose
+def check_it_out(temp_id):
+    try:
+        conn = sqlite3.connect('aybekler1aszDB.db')
+        c = conn.cursor()
+        cursor = c.execute("SELECT User_Id FROM general_Information")
+        check = "False"
+
+        for j,i in enumerate(cursor):
+            if temp_id == i :
+                check = "True"
+                
+
+        eel.adding(check)
+
+            
+        
+
+        
+
+
+    except:
+        print("Connection Error In GettingInfoFromDB")
+        
 
 
 
@@ -492,7 +517,9 @@ def Delete_Data_From_Db(id):
     except:
         print("Error has been occupied")
          
-
+@eel.expose
+def heyt(s):
+    print(s)
 
 
 eel.start('menu.html')
