@@ -58,9 +58,12 @@
             </div>
 
 
+
+
             <div class="row gy-5">
-                <div class="text-center" style="padding-left: 0px;  padding-right: 0px;">
-                    <img src="../web/images/İcon/aybekler_icon.png" class="img-fluid" alt="aybekler_icon" id="ayb_icon">
+                <div class="text-center" id="ayb_icon">
+                    <img src="images/İcon/aybekler_icon.png" style="text-align: center;" class="img-fluid"
+                        alt="aybekler_icon">
                 </div>
             </div>
             <h3 id="general-title"> AYBEKLER GUVENLİK SİSTEMİ </h3>
@@ -76,7 +79,7 @@
             <a href="#" class="w3-bar-item w3-button" id="main" onclick="myFunction(this.id)"><i
                     class="fa fa-home"></i></a>
 
-            <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px" id="side-bar">
+            <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px; height: 50%;" id="side-bar">
                 <a href="#" class="w3-bar-item w3-button" id="home" onclick="myFunction(this.id)"><i
                         class="far fa-address-book"></i></a>
 
@@ -84,6 +87,27 @@
                         class="fa fa-search"></i></a>
             </div>
         </div>
+
+
+        <style>
+            @media screen and (max-height: 450px) {
+                #side-bar {
+                    padding-top: 15px;
+                }
+
+                #side-bar a {
+                    font-size: 18px;
+                }
+            }
+
+            #side-bar {
+                height: 20%;
+                margin-bottom: 0%;
+                
+               
+                
+            }
+        </style>
 
 
         <!--##################################### Main ################################################################-->
@@ -918,6 +942,7 @@
                     document.getElementById('table-info').style.display = "none";
                     document.getElementById('top-title').style.display = "block";
                     document.getElementById('general-title').style.display = "block";
+                    document.getElementById('ayb_icon').style.display = "block";
 
                     /* When I clicked on trash */
                     document.getElementById('home').style.background = "unset"
@@ -958,7 +983,7 @@
                     console.log(id);
                     /* Return Query*/
                     eel.GettingInfoFromDB();
-                    eel.heyt("heyt");
+
                     /* Main Visibility */
                     document.getElementById('content-main').style.display = "none";
                     document.getElementById("real-time-search").style.display = "flex";
@@ -1140,12 +1165,14 @@
 
             function add() {
                 var AccountNumber = document.getElementById('accountNo');
-                eel.check_it_out(AccountNumber)
+                console.log("Id from Add " + AccountNumber.value);
+                eel.check_it_out(AccountNumber.value)
             }
 
             /*--------------------------------------------------------------ADD TO DATABASE ----------------------------------------------------------------*/
             eel.expose(adding)
             function adding(check) {
+                console.log(check)
 
                 if (check === "False") {
 
@@ -1599,6 +1626,16 @@
                                     icon: "success",
                                 });
 
+                                /* Remove Tag */
+                                document.getElementById('accountNo').value = '';
+                                document.getElementById('name').value = '';
+                                document.getElementById('telPhone').value = '';
+                                document.getElementById('Phone').value = '';
+                                document.getElementById('adress').value = '';
+                                document.getElementById('email').value = '';
+                                document.getElementById('telPhone').value = '';
+                                document.getElementById('Phone').value = '';
+
                             } else {
                                 swal("Ekle işlemi iptal edilmiştir !!!");
                             }
@@ -1606,21 +1643,15 @@
 
 
                 } else if (check === "True") {
-
-
                     console.log("Girdiğiniz ID zaten kayıtlı, Lütfen Farklı bir ID giriniz.")
                     var IdMsg = document.getElementById('IdMsg');
                     IdMsg.innerHTML = `<div class="alert alert-danger" role="alert"> Girdiğiniz ID zaten kayıtlı, Lütfen Farklı bir ID giriniz.</div>`
                     setTimeout(function () {
                         IdMsg.style.display = "none";
 
-                    }, 3000);
+                    }, 10000);
                 }
-
-
-
             }
-
         </script>
 
 
@@ -2637,20 +2668,41 @@
         /*--------------------------------- SHOW USER INFORMATION ----------------------------------------- */
 
         eel.expose(userArea)
-        var user_list_count = 0;
-
-        var usersInfo = ``;
-        function userArea(user_area_Id, user_area_Name, user_area_email, user_area_password, count) {
 
 
 
+        function userArea(json_dtype_from_js_to_py) {
 
 
+            var usersInfo = ``;
+            var user_list_count = 0;
 
-            if (user_list_count < count) {
+            for (var user_list_count = 0; user_list_count < json_dtype_from_js_to_py['ctf']; user_list_count++) {
+                usersInfo += `<hr>
+                          <small id="">Abone İsmi :</small>
+                          <div  id="username"> ${json_dtype_from_js_to_py[String(user_list_count) + "user_area_Name"]}
+                            
+                          </div>
+                          
+                          <small id="" >Abone Email :</small>
+                          <div   id="useryetkilisi" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + "user_area_email"]}
+                            
+                          </div>
+                          
+                          <small id="">Kullanıcı Sifresi :</small>
+                          <div   id="userpass" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + 'user_area_password']}
+                            
+                          </div>
+                          <hr>`;
+
+                dynamicInfo = document.getElementById('informationAboutUsers');
+                dynamicInfo.innerHTML = usersInfo;
+            }
+
+            /*if (user_list_count < json_dtype_from_js_to_py['ctf']) {
                 user_list_count += 1;
                 console.log("i-> ", user_list_count);
-                usersInfo += ` <hr>
+                usersInfo += `<hr>
                           <small id="">Abone İsmi :</small>
                           <div  id="username"> ${user_area_Name}
                             
@@ -2669,68 +2721,112 @@
 
                 dynamicInfo = document.getElementById('informationAboutUsers');
                 dynamicInfo.innerHTML = usersInfo;
-            }
+            }*/
 
 
 
 
         }
-        var callInfo = ``;
-        var call_list_count = 0;
+
         /*------------------------------------------ SHOW CALLING AREA   -------------------------------------------------------------*/
         eel.expose(callArea)
-        function callArea(call_id, call_name, call_Password, call_Telephone, call_gsm1, call_gsm2, call_gsm3, countCal) {
-
-            if (call_list_count < countCal) {
-                call_list_count += 1;
+        function callArea(json_dtype_from_js_to_py_from_Call) {
+            var callInfo = ``;
+            var countCall = 0;
+            /*console.log(json_dtype_from_js_to_py_from_Call[String(countCall)+'call_name']+"from call name") ;*/
+            for (var call_list_count = 0; call_list_count < json_dtype_from_js_to_py_from_Call['countcall']; call_list_count++) {
                 callInfo += `<hr>
                           
                           <small id="" >Aranacak Kisi İsmi :</small>
-                          <div   id="c" style:"background-color: black;"> ${call_name}
+                          <div   id="c" style:"background-color: black;"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_name']}
                             
                           </div>
                           <small id="">Aranacak Kisi Sifresi :</small>
-                          <div   id="b" style:"background-color: black;">${call_Password}
+                          <div   id="b" style:"background-color: black;">${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Password']}
                             
                           </div>
                           <small id="">Telefon :</small>
-                          <div   id="a"> ${call_Telephone}
+                          <div   id="a"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Telephone']}
                             
                           </div>
                           <small id="">GSM1 :</small>
-                          <div   id="s"> ${call_gsm1}
+                          <div   id="s"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm1']}
                           </div>
                             <small id="">GSM2 :</small>
-                          <div   id="gsm2"> ${call_gsm2}
+                          <div   id="gsm2"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm2']}
                           </div>
                           <small id="">GSM3 :</small>
-                          <div   id="gsm3"> ${call_gsm3}
+                          <div   id="gsm3"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm3']}
                           </div>
                             <hr>`;
                 callarea = document.getElementById('peopleWhoWillCalledArea');
                 callarea.innerHTML = callInfo;
+
             }
+
+            /* if (call_list_count < countCal) {
+                 call_list_count += 1;
+                 callInfo += `<hr>
+                           
+                           <small id="" >Aranacak Kisi İsmi :</small>
+                           <div   id="c" style:"background-color: black;"> ${call_name}
+                             
+                           </div>
+                           <small id="">Aranacak Kisi Sifresi :</small>
+                           <div   id="b" style:"background-color: black;">${call_Password}
+                             
+                           </div>
+                           <small id="">Telefon :</small>
+                           <div   id="a"> ${call_Telephone}
+                             
+                           </div>
+                           <small id="">GSM1 :</small>
+                           <div   id="s"> ${call_gsm1}
+                           </div>
+                             <small id="">GSM2 :</small>
+                           <div   id="gsm2"> ${call_gsm2}
+                           </div>
+                           <small id="">GSM3 :</small>
+                           <div   id="gsm3"> ${call_gsm3}
+                           </div>
+                             <hr>`;
+                 callarea = document.getElementById('peopleWhoWillCalledArea');
+                 callarea.innerHTML = callInfo;
+             }*/
 
 
         }
 
         /*------------------------------------------ SHOW REGION AREA   -------------------------------------------------------------*/
-        var regInfo = ``;
-        var region_list_count = 0;
-        eel.expose(regionArea)
-        function regionArea(user_id_from_region_area, Region, regC) {
 
-            if (region_list_count < regC) {
-                region_list_count += 1;
+        eel.expose(regionArea)
+        function regionArea(json_dtype_from_js_to_py_from_Region) {
+            var regInfo = ``;
+
+
+            for (var region_list_count = 0; region_list_count < json_dtype_from_js_to_py_from_Region['regionC']; region_list_count++) {
                 regInfo += `<ul class="list-group list-group-flush" id="regionAr" style="background-color: white;"></ul>
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Bölge</h6>
-                        <span class="text-secondary" style="margin-left: 2%">${Region}</span>
+                        <span class="text-secondary" style="margin-left: 2%">${json_dtype_from_js_to_py_from_Region[String(region_list_count) + 'region']}</span>
                       </ul>
                      `;
                 regAr = document.getElementById('regionclass');
                 regAr.innerHTML = regInfo;
 
             }
+
+
+            /* if (region_list_count < regC) {
+                 region_list_count += 1;
+                 regInfo += `<ul class="list-group list-group-flush" id="regionAr" style="background-color: white;"></ul>
+                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Bölge</h6>
+                         <span class="text-secondary" style="margin-left: 2%">${Region}</span>
+                       </ul>
+                      `;
+                 regAr = document.getElementById('regionclass');
+                 regAr.innerHTML = regInfo;
+ 
+             }*/
 
         }
     </script>
