@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Aybekler Application</title>
 </head>
@@ -101,11 +101,12 @@
             }
 
             #side-bar {
-                height: 20%;
+                height: 40%;
                 margin-bottom: 0%;
-                
-               
-                
+                bottom: 5%;
+
+
+
             }
         </style>
 
@@ -116,7 +117,7 @@
             <form class="my-form">
 
                 <h1 style="text-align: center;">TÜRKİYE'NİN ALARM MERKEZİ MARKASI</h1>
-                <div class="container">
+                <div class="container" id="cont">
                     <!------------------------------------------------------------------------------------------------------------------------->
                     <!-- Titles -->
                     <div class="row gy-8">
@@ -132,29 +133,29 @@
                     <!------------------------------------------ ACCOUNT INFO ------------------------------------------------------------------------------->
                     <!--Dates-->
                     <div id="row">
-                        <label for="dates">Bağlantı Tarihi :</label>
+                        <label for="dates">Bağlantı Tarihi:</label>
                         <input id="dates" type="date">
                     </div>
                     <!-- Account Number -->
                     <div id="row">
-                        <label for="accountNo">Abone No :</label>
+                        <label for="accountNo">Abone No:</label>
                         <input id="accountNo" type="text">
                     </div>
                     <!-- Name -->
                     <div id="row">
-                        <label for="name">Abone Adı :</label>
+                        <label for="name">Abone Adı:</label>
                         <input id="name" type="text">
                     </div>
                     <!-- Phone -->
                     <div id="row">
-                        <label for="telPhone">Tel :</label>
+                        <label for="telPhone">Tel:</label>
                         <input id="telPhone" type="text">
                     </div>
                 </div>
                 <div class="container">
                     <!-- telePhone -->
                     <div id="row">
-                        <label for="Phone">Cep :</label>
+                        <label for="Phone">Cep:</label>
                         <input id="Phone" type="text">
                     </div>
                     <!-- Adress -->
@@ -263,6 +264,12 @@
                     <!--Personels-->
                     <div id="personel-container">
                         <h3 style="margin-top: 4%;">Kullanıcılar </h3>
+                        <div id="card" style="background-color: white;">
+                            <div class="alert alert-danger" role="alert">
+                                Bilgileri girmeden önce yer ayarlaması yapınız !!!
+                              </div>
+                        </div>
+                        
                         <div class="container">
                             <div class="row gutters">
                                 <div class="card h-100">
@@ -453,6 +460,11 @@
 
                     <!--------------------------------- Calling Personel List In Case Of ALERT------------------------------------------->
                     <h3 style="margin-top: 5%;"> Alarm Durumunda Aranacak Kişiler Listesi</h3>
+                    <div id="card" style="background-color: white;">
+                        <div class="alert alert-danger" role="alert">
+                            Bilgileri girmeden önce yer ayarlaması yapınız !!!
+                          </div>
+                    </div>
                     <div id="call-container">
 
                         <div class="container">
@@ -734,21 +746,31 @@
 
                     <p for="open-close" style="margin-top: 4%;">Açılış/Kapanış İzleme İstiyor mu ? </p>
                     <div id="open-close">
-                        <div class="form-check">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault"  id="flexRadioDefault1" value="Evet">
+                            <label class="form-check-label" for="flexRadioDefault1"> Evet</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Hayır">
+                            <label class="form-check-label" for="flexRadioDefault2"> Hayır</label>
+                          </div>
+                          
+                        <!--<div class="form-check">
                             <input class="form-check-input" type="radio" value="Evet" name="flexRadioDefault"
                                 id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Evet
                             </label>
-                        </div>
+                        </div>-->
 
-                        <div class="form-check">
+                        <!--<div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" value="Hayır"
                                 id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Hayır
                             </label>
-                        </div>
+                        </div>-->
 
                     </div>
 
@@ -773,6 +795,11 @@
                                             <div class="row gutters" id="rowg">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <h6 class="mb-2 text-primary">DEDEKTÖR DAĞILIMI VE ANIMLAR :</h6>
+                                                    <div id="card" style="background-color: white;">
+                                                        <div class="alert alert-danger" role="alert">
+                                                            Bilgileri girmeden önce yer ayarlaması yapınız !!!
+                                                          </div>
+                                                    </div>
                                                 </div>
                                                 <!------------------------ 1. Region  ----------------------------------->
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -1460,7 +1487,7 @@
 
                                 /* Dynamic */
                                 $('input').each(function (input) {
-                                    for (var n = 1; n < i + 1; n++) {
+                                    for (var n = 1; n < userC + 1; n++) {
                                         var value = $(this).val();
                                         var id = $(this).attr('id');
                                         if (id === "fullNameKullanıcıNo" + n) {
@@ -1627,14 +1654,41 @@
                                 });
 
                                 /* Remove Tag */
-                                document.getElementById('accountNo').value = '';
+                                /*document.getElementById('accountNo').value = '';
                                 document.getElementById('name').value = '';
                                 document.getElementById('telPhone').value = '';
                                 document.getElementById('Phone').value = '';
                                 document.getElementById('adress').value = '';
                                 document.getElementById('email').value = '';
                                 document.getElementById('telPhone').value = '';
-                                document.getElementById('Phone').value = '';
+                                document.getElementById('Phone').value = '';*/
+
+
+
+
+                                $(document).ready(function () {
+                                    
+
+                                        $('#content-main').find(':input').each(function () {
+                                            switch (this.type) {
+                                                case 'button':
+                                                case 'text':
+                                                case 'submit':
+                                                case 'password':
+                                                case 'file':
+                                                case 'email':
+                                                case 'date':
+                                                case 'number':
+                                                    $(this).val('');
+                                                    break;
+                                                case 'checkbox':
+                                                case 'radio':
+                                                    this.checked = false;
+                                                    break;
+                                            }
+                                        });
+                                    
+                                });
 
                             } else {
                                 swal("Ekle işlemi iptal edilmiştir !!!");
@@ -2397,6 +2451,7 @@
                                                             style="color: cadetblue;"><i
                                                                 class="material-icons text-info mr-2"></i>Kullanıcılar
                                                         </h6>
+                                                       
                                                         <div id="informationAboutUsers" style="color: black;">
 
                                                         </div>
@@ -2575,7 +2630,15 @@
                                 while (node.hasChildNodes()) {
                                     node.removeChild(node.lastChild); /* Remove All node */
                                 }
-                                location.reload() /* Refresh Page */
+
+                                /* Remove All input*/
+
+
+
+                                setTimeout(function () {
+                                    location.reload() /* Refresh Page */
+                                }, 2000)
+
 
                                 swal(fireds_button + "'li Kişi Listenizden silinmiştir.", { /* Yes/No Text box */
                                     icon: "success",
@@ -2588,6 +2651,7 @@
                 }
                 var fired_button = $(this).val();
                 eel.sended(fired_button);
+
 
             })
         })
@@ -2759,8 +2823,9 @@
                           <div   id="gsm3"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm3']}
                           </div>
                             <hr>`;
-                callarea = document.getElementById('peopleWhoWillCalledArea');
+                var callarea = document.getElementById('peopleWhoWillCalledArea');
                 callarea.innerHTML = callInfo;
+                callarea = ``;
 
             }
 

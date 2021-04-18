@@ -12,7 +12,7 @@ def backup():
     #print("Today's date:", today)
     d1 = today.strftime("%d") # Get only day
     if(d1 == "07" or d1 == "14" or d1 == "21" or d1 == "28"): # if day would be that I want to .
-        conn = sqlite3.connect('aybekler1aszDB.db') # Back up
+        conn = sqlite3.connect('aybekler_app_database.db') # Back up
         with io.open('clientes_dump.sql', 'w') as f: # write on file
             for linha in conn.iterdump(): # travel line to line.
                 f.write('%s\n' % linha)
@@ -29,7 +29,7 @@ def hellopython(text):
     print("It is working")
     try:
         # Create DataBase And Connection
-        conn = sqlite3.connect("aybekler1aszDB.db")
+        conn = sqlite3.connect("aybekler_app_database.db")
         c = conn.cursor()
     except:
         print("Database can not connected.")
@@ -171,11 +171,9 @@ def hellopython(text):
             email = user[str(i)+"email"]
             #print("{} . password --> {}".format(i,user[str(i)+"password"]))
             password = user[str(i)+"password"]
-            c.execute("INSERT INTO User_Info_Area (User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users) VALUES (?, ?, ?, ?, ?)",
-                      (Number_Of_Account, name, email, password, userCount))
+            c.execute("INSERT INTO User_Info_Area (User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users) VALUES (?, ?, ?, ?, ?)", (Number_Of_Account, name, email, password, userCount))
 
-        user_info_cursor = c.execute(
-            "SELECT User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users FROM User_Info_Area")
+        user_info_cursor = c.execute("SELECT User_Reference_id_from_User_Section, User_Name, User_Email, User_Password, Count_Of_Users FROM User_Info_Area")
         # for i,user in enumerate(user_info_cursor):
         #print("{}. id from user info area --> {}".format(i,user[0]))
         #print("{}. User_Name from user info area --> {}".format(i,user[1]))
@@ -193,28 +191,22 @@ def hellopython(text):
         c.execute(create_table_calling_area)
         for j in range(1, countWhowillCalling+1):
             #print("{} . isim --> {}".format(j,personeWhoWillCalled[str(j)+"isim"]))
-            Name_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"isim"]
+            Name_Of_Person_Who_Will_Called = personeWhoWillCalled[str(               j)+"isim"]
 
             #print("{} . sifre --> {}".format(j,personeWhoWillCalled[str(j)+"sifre"]))
-            Password_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"sifre"]
+            Password_Of_Person_Who_Will_Called = personeWhoWillCalled[str(                j)+"sifre"]
 
             #print("{} . telefon --> {}".format(j,personeWhoWillCalled[str(j)+"telefon"]))
-            Telephone_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"telefon"]
+            Telephone_Of_Person_Who_Will_Called = personeWhoWillCalled[str(                j)+"telefon"]
 
             #print("{} . GSM1 --> {}".format(j,personeWhoWillCalled[str(j)+"GSM1"]))
-            gsm1_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"GSM1"]
+            gsm1_Of_Person_Who_Will_Called = personeWhoWillCalled[str(                j)+"GSM1"]
 
             #print("{} . GSM2 --> {}".format(j,personeWhoWillCalled[str(j)+"GSM2"]))
-            gsm2_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"GSM2"]
+            gsm2_Of_Person_Who_Will_Called = personeWhoWillCalled[str(                j)+"GSM2"]
 
             #print("{} . GSM3 --> {}".format(j,personeWhoWillCalled[str(j)+"GSM3"]))
-            gsm3_Of_Person_Who_Will_Called = personeWhoWillCalled[str(
-                j)+"GSM3"]
+            gsm3_Of_Person_Who_Will_Called = personeWhoWillCalled[str(                j)+"GSM3"]
 
             c.execute("INSERT INTO User_Who_Will_Called_Stage (User_Reference_id_from_Calling_Section,Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called, Count_Person_Who_Will_Called) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
                       (Number_Of_Account, Name_Of_Person_Who_Will_Called, Password_Of_Person_Who_Will_Called, Telephone_Of_Person_Who_Will_Called, gsm1_Of_Person_Who_Will_Called, gsm2_Of_Person_Who_Will_Called, gsm3_Of_Person_Who_Will_Called, countWhowillCalling))
@@ -228,7 +220,7 @@ def hellopython(text):
         #print(" Password from call db --> {}".format(call[2]))
         conn.commit()
     except(Error):
-        #print("this is an error message from call db--> {}".format(Error))
+        print("this is an error message from call db--> {}".format(Error))
         eel.ErrorMessage(Error)
 
     try:
@@ -259,7 +251,7 @@ def hellopython(text):
 @eel.expose
 def check_it_out(temp_id):
     try:
-        conn = sqlite3.connect('aybekler1aszDB.db')
+        conn = sqlite3.connect('aybekler_app_database.db')
         c = conn.cursor()
         cursor = c.execute("SELECT User_Id FROM general_Information")
         check = "False"
@@ -285,7 +277,7 @@ def check_it_out(temp_id):
 def GettingInfoFromDB():
 
     try:
-        conn = sqlite3.connect('aybekler1aszDB.db')
+        conn = sqlite3.connect('aybekler_app_database.db')
         c = conn.cursor()
     except:
         print("Connection Error In GettingInfoFromDB")
@@ -361,24 +353,21 @@ def GettingInfoFromDB():
     c.close()
     conn.close()
 
-
 GettingInfoFromDB()
 
 
 @eel.expose
 def sended(value):
     try:
-        #print("this is other lib ",value)
-        con = sqlite3.connect("aybekler1aszDB.db")
+        con = sqlite3.connect("aybekler_app_database.db")
         c = con.cursor()
-        specific_id = int(value)
-        #print("specific id : ",specific_id)
-
     except:
-        print("Error has been occupied form Connection in Sended")
+        print("Error has been occupied from Connection in Sended")
 
-    #
+   
     try:
+        specific_id = int(value)
+        print("Id in general info from sended ", specific_id)
         cursor = c.execute("SELECT User_Id, DATE, User_Name, User_Telephone, User_Phone, User_Address, User_Email, User_Adress_Explanation, Home_Facility_Type, Work_Facility_Type, Store_Facility_Type, Panel_Type, Connection_Type,Seller, Phone_Line, gprs, Network_Line, Montage_Responsibilities, open_close, saturday_open_close, sunday_open_close  FROM general_Information Where User_Id = ? ", (specific_id,))
         for count, raw in enumerate(cursor):
             #print("--------------- {}. PERSON--------------".format(count))
@@ -424,8 +413,7 @@ def sended(value):
             #print("{}. saturday_open_close --> {}".format(count, saturday_open_close))
             sunday_open_close = raw[20]
             #print("{}. sunday_open_close --> {}".format(count, sunday_open_close))
-            eel.info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype,
-                     conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close)
+            eel.info(ID, date, name, telephone, phone, addres, email, adresExp, Home, workPlace, storage, paneltype, conType, Seller, phoneL, gprs, networkLine, montaj, open_close, saturday_open_close, sunday_open_close)
             print("----------------------------------------------------\n")
 
     except:
@@ -477,22 +465,22 @@ def sended(value):
             call_id = call[0]
             json_dtype_from_js_to_py_from_Call[str(
                 countCall)+'call_id'] = call_id
-            #print(" {}. id --> {}".format(countCall, call_id))
+            print(" {}. id --> {}".format(countCall, call_id))
 
             call_name = call[1]
             json_dtype_from_js_to_py_from_Call[str(
                 countCall)+'call_name'] = call_name
-            #print(" {}. Name --> {}".format(countCall, call_name))
+            print(" {}. Name --> {}".format(countCall, call_name))
 
             call_Password = call[2]
             json_dtype_from_js_to_py_from_Call[str(
                 countCall)+'call_Password'] = call_Password
-            #print(" {}. Password --> {}".format(countCall, call_Password))
+            print(" {}. Password --> {}".format(countCall, call_Password))
 
             call_Telephone = call[3]
             json_dtype_from_js_to_py_from_Call[str(
                 countCall)+'call_Telephone'] = call_Telephone
-            #print(" {}. Telephone --> {}".format(countCall, call_Telephone))
+            print(" {}. Telephone --> {}".format(countCall, call_Telephone))
 
             call_gsm1 = call[4]
             json_dtype_from_js_to_py_from_Call[str(
@@ -547,7 +535,7 @@ def sended(value):
 @eel.expose
 def Delete_Data_From_Db(id):
     try:
-        con = sqlite3.connect("aybekler1aszDB.db")
+        con = sqlite3.connect("aybekler_app_database.db")
 
         specific_id = id
 
