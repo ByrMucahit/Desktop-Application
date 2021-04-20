@@ -66,7 +66,7 @@
                         alt="aybekler_icon">
                 </div>
             </div>
-            <h3 id="general-title"> AYBEKLER GUVENLİK SİSTEMİ </h3>
+            <h3 id="general-title" style="margin-left: 4%;"> AYBEKLER GUVENLİK SİSTEMİ </h3>
         </div>
     </div>
 
@@ -947,6 +947,32 @@
             #IdMsg {
                 color: red;
             }
+            #c{
+                font-size: small;
+            }
+
+            #call_name, #call_tel , #call_pass, #call_gsm1,#call_gsm2, #call_gsm3  {
+                font-size: small;
+                color: #2c3c4c
+            }                        
+                            
+
+            #call_title_name, #call_title_password, #call_title_telephone, #call_gsm1, #call_gsm2, #call_gsm3{
+                color: #5a4b29;
+            }
+                        
+            #user_area_title_name, #user_area_password, #user_area_title_email    {
+                color: #5a4b29;
+            }            
+
+            #userpass_from_value, #username_from_value,#useryetkilisi_from_value{
+                font-size: small;
+                color: #2c3c4c;
+            }
+            #region_section{
+                color: #FFDF00;
+            }     
+        
         </style>
 
 
@@ -2727,8 +2753,8 @@
 
 
         }
-
-
+        
+        
         /*--------------------------------- SHOW USER INFORMATION ----------------------------------------- */
 
         eel.expose(userArea)
@@ -2743,18 +2769,18 @@
 
             for (var user_list_count = 0; user_list_count < json_dtype_from_js_to_py['ctf']; user_list_count++) {
                 usersInfo += `<hr>
-                          <small id="">Abone İsmi :</small>
-                          <div  id="username"> ${json_dtype_from_js_to_py[String(user_list_count) + "user_area_Name"]}
+                          <small id="user_area_title_name">Abone İsmi :</small>
+                          <div  id="username_from_value"> ${json_dtype_from_js_to_py[String(user_list_count) + "user_area_Name"]}
                             
                           </div>
                           
-                          <small id="" >Abone Email :</small>
-                          <div   id="useryetkilisi" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + "user_area_email"]}
+                          <small id="user_area_title_email" >Abone Email :</small>
+                          <div   id="useryetkilisi_from_value" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + "user_area_email"]}
                             
                           </div>
                           
-                          <small id="">Kullanıcı Sifresi :</small>
-                          <div   id="userpass" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + 'user_area_password']}
+                          <small id="user_area_password">Kullanıcı Sifresi :</small>
+                          <div   id="userpass_from_value" style:"background-color: black;">${json_dtype_from_js_to_py[String(user_list_count) + 'user_area_password']}
                             
                           </div>
                           <hr>`;
@@ -2791,7 +2817,7 @@
 
 
         }
-
+        
         /*------------------------------------------ SHOW CALLING AREA   -------------------------------------------------------------*/
         eel.expose(callArea)
         function callArea(json_dtype_from_js_to_py_from_Call) {
@@ -2801,26 +2827,26 @@
             for (var call_list_count = 0; call_list_count < json_dtype_from_js_to_py_from_Call['countcall']; call_list_count++) {
                 callInfo += `<hr>
                           
-                          <small id="" >Aranacak Kisi İsmi :</small>
-                          <div   id="c" style:"background-color: black;"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_name']}
+                          <small id="call_title_name" >Aranacak Kisi İsmi :</small>
+                          <div   id="call_name" style:"background-color: black;"><p> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_name']}</p>
                             
                           </div>
-                          <small id="">Aranacak Kisi Sifresi :</small>
-                          <div   id="b" style:"background-color: black;">${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Password']}
-                            
+                          <small id="call_title_password">Aranacak Kisi Sifresi :</small>
+                          <div   id="call_pass" style:"background-color: black;"><p>${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Password']}</p>
+                             
+                         </div>
+                          <small id="call_title_telephone">Telefon :</small>
+                          <div   id="call_tel"> <p>${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Telephone']}</p>
+                                
                           </div>
-                          <small id="">Telefon :</small>
-                          <div   id="a"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_Telephone']}
-                            
+                          <small id="call_gsm1">GSM1 :</small>
+                          <div   id="call_gsm1"> <p>${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm1']}</p>
                           </div>
-                          <small id="">GSM1 :</small>
-                          <div   id="s"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm1']}
+                            <small id="call_gsm2">GSM2 :</small>
+                          <div   id="call_gsm2"> <p>${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm2']}</p>
                           </div>
-                            <small id="">GSM2 :</small>
-                          <div   id="gsm2"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm2']}
-                          </div>
-                          <small id="">GSM3 :</small>
-                          <div   id="gsm3"> ${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm3']}
+                          <small id="call_gsm3">GSM3 :</small>
+                          <div   id="call_gsm3"> </p>${json_dtype_from_js_to_py_from_Call[String(call_list_count) + 'call_gsm3']}</p>
                           </div>
                             <hr>`;
                 var callarea = document.getElementById('peopleWhoWillCalledArea');
@@ -2828,6 +2854,7 @@
                 callarea = ``;
 
             }
+            
 
             /* if (call_list_count < countCal) {
                  call_list_count += 1;
@@ -2870,9 +2897,9 @@
 
 
             for (var region_list_count = 0; region_list_count < json_dtype_from_js_to_py_from_Region['regionC']; region_list_count++) {
-                regInfo += `<ul class="list-group list-group-flush" id="regionAr" style="background-color: white;"></ul>
+                regInfo += `<ul  id="regionAr" style="background-color: white;"></ul>
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Bölge</h6>
-                        <span class="text-secondary" style="margin-left: 2%">${json_dtype_from_js_to_py_from_Region[String(region_list_count) + 'region']}</span>
+                        <span  style="margin-left: 2%" id="region_section">${json_dtype_from_js_to_py_from_Region[String(region_list_count) + 'region']}</span>
                       </ul>
                      `;
                 regAr = document.getElementById('regionclass');

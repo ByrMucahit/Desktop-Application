@@ -12,7 +12,7 @@ def backup():
     #print("Today's date:", today)
     d1 = today.strftime("%d") # Get only day
     if(d1 == "07" or d1 == "14" or d1 == "21" or d1 == "28"): # if day would be that I want to .
-        conn = sqlite3.connect('aybekler_app_database.db') # Back up
+        conn = sqlite3.connect('web/aybekler_app_database.db') # Back up
         with io.open('clientes_dump.sql', 'w') as f: # write on file
             for linha in conn.iterdump(): # travel line to line.
                 f.write('%s\n' % linha)
@@ -29,7 +29,7 @@ def hellopython(text):
     print("It is working")
     try:
         # Create DataBase And Connection
-        conn = sqlite3.connect("aybekler_app_database.db")
+        conn = sqlite3.connect("web/aybekler_app_database.db")
         c = conn.cursor()
     except:
         print("Database can not connected.")
@@ -251,7 +251,7 @@ def hellopython(text):
 @eel.expose
 def check_it_out(temp_id):
     try:
-        conn = sqlite3.connect('aybekler_app_database.db')
+        conn = sqlite3.connect('web/aybekler_app_database.db')
         c = conn.cursor()
         cursor = c.execute("SELECT User_Id FROM general_Information")
         check = "False"
@@ -277,7 +277,7 @@ def check_it_out(temp_id):
 def GettingInfoFromDB():
 
     try:
-        conn = sqlite3.connect('aybekler_app_database.db')
+        conn = sqlite3.connect('web/aybekler_app_database.db')
         c = conn.cursor()
     except:
         print("Connection Error In GettingInfoFromDB")
@@ -359,7 +359,7 @@ GettingInfoFromDB()
 @eel.expose
 def sended(value):
     try:
-        con = sqlite3.connect("aybekler_app_database.db")
+        con = sqlite3.connect("web/aybekler_app_database.db")
         c = con.cursor()
     except:
         print("Error has been occupied from Connection in Sended")
@@ -535,7 +535,7 @@ def sended(value):
 @eel.expose
 def Delete_Data_From_Db(id):
     try:
-        con = sqlite3.connect("aybekler_app_database.db")
+        con = sqlite3.connect("web/aybekler_app_database.db")
 
         specific_id = id
 
