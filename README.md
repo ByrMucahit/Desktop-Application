@@ -7,9 +7,9 @@ Back-End is developed using python. It provides electron.js make interact betwee
 
 # Software
 - To install the requirements using conda, run the following at the command-line:
-<pre><code>$ conda install --file requirements.txt</code></pre
+<pre><code>$ conda install --file requirements.txt</code></pre>
 - To create a stand-alone environment named PDSH with Python 3.5 and all the required package versions, run the following:
-<pre><code>$ conda create -n PDSH python=3.5 --file requirements.txt</code></pre
+<pre><code>$ conda create -n PDSH python=3.5 --file requirements.txt</code></pre>
 
 
 # Credits
